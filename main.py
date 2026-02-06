@@ -1,5 +1,4 @@
 """
-Google Gold Standard Connections Game UI.
 
 This module handles the graphical user interface using Tkinter, featuring
 a fall-inspired pastel palette and high-readability text settings.

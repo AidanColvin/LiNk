@@ -85,7 +85,21 @@
     </style>
 </head>
 <body>
-    <h1>CATEGORIES</h1>
+    <div id="logo-container" style="text-align:center; margin-bottom: 8px;">
+        <!-- If you add a file named 'logo.png' to the repo root it will be used here. -->
+        <img id="logo" src="logo.png" alt="Intersect logo" style="max-width:140px; display:block; margin: 0 auto;" onerror="this.style.display='none';document.getElementById('logo-svg').style.display='block';" />
+
+        <!-- SVG fallback (shows when logo.png is not present) -->
+        <svg id="logo-svg" viewBox="0 0 120 110" width="140" height="120" style="display:block; margin: 0 auto;">
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+                <circle cx="40" cy="40" r="24" stroke="#C48B6C" />
+                <circle cx="80" cy="40" r="24" stroke="#E0C49A" />
+                <circle cx="60" cy="72" r="24" stroke="#D7A66B" />
+            </g>
+            <text x="50%" y="102" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#222">INTERSECT</text>
+        </svg>
+    </div>
+    <h1>Intersect</h1>
     <div id="game-container">
         <div id="solved-container"></div>
         <div id="grid" class="grid"></div>
