@@ -22,7 +22,7 @@ git push origin main
 https://<your-github-username>.github.io/<repo-name>/
 ```
 
-For example: `https://AidanColvin.github.io/Intersect/`
+For example: `https://AidanColvin.github.io/LiNk/`
 
 Notes
 - The repository must be public for the Pages site to be accessible without login.
