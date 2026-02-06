@@ -8,50 +8,55 @@
         :root {
             --bg: #FFFAF0; 
             --card-base: #C4A484; 
-            --card-selected: #D3BBA4; 
+            --card-selected: #D3D9E8;
             --grid-line: #000;
-            --border-width: 4px; 
+            --border-width: 3px; /* slightly smaller borders to help fit */
             --seed: #90EE90;
             --red-herring: #ADD8E6;
             --tricky: #FFFFE0;
             --expert: #FFB6C1;
+            --logo-vh: 14vh; /* logo height as viewport fraction (increased slightly) */
+            --header-vh: 18vh; /* total header area (logo + padding) */
         }
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
             display: flex; flex-direction: column; align-items: center; 
             background: var(--bg); margin: 0; padding: 10px;
-            height: 100vh; justify-content: center; overflow: hidden;
+            height: 100vh; justify-content: flex-start; overflow: hidden;
         }
-        #game-container { width: 100%; max-width: 760px; display: flex; flex-direction: column; height: calc(100vh - 20px); justify-content: space-between; }
+        /* Header row (brand text + logo) */
+        .brand-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; max-width: 760px; margin: 0 auto 8px auto; padding: 0 8px; box-sizing: border-box; }
+        .brand-text { text-transform: lowercase; font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.4rem); letter-spacing: 2px; color: #222; }
+        /* Game container takes remaining viewport height after header */
+        #game-container { width: 100%; max-width: 760px; display: flex; flex-direction: column; height: calc(100vh - var(--header-vh) - 28px); justify-content: space-between; margin: 0 auto; }
         h1 { text-align: center; margin: 0 0 15px 0; font-size: 2.8rem; font-weight: 300; text-transform: uppercase; letter-spacing: 6px; }
         /* Site title override: show lowercase above the logo */
         .site-title { text-transform: lowercase !important; font-weight: 700; font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 8px; }
           /* Logo image (use your uploaded 'logo.png' or 'logo-tile.png').
-              Provide a PNG with a transparent background for best results.
-              If the image fails to load the inline SVG will be used as a fallback. */
-          #logo { display: block; width: 360px; height: auto; margin: 0 auto; background: transparent; }
-          #logo-svg { display: none; width: 360px; height: auto; margin: 0 auto; }
+              Use a PNG with a transparent background. The logo height is responsive and aligned to the right. */
+          #logo { display: block; height: calc(var(--logo-vh) * 1.1); width: auto; max-width: 40%; margin: 0; background: transparent; }
+          #logo-svg { display: none; height: calc(var(--logo-vh) * 1.1); width: auto; max-width: 40%; margin: 0; }
 
         .grid { 
             display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr;
-            gap: var(--border-width); padding: var(--border-width);
+            gap: calc(var(--border-width) + 1px); padding: calc(var(--border-width) + 1px);
             background-color: var(--grid-line); border: var(--border-width) solid var(--grid-line);
-            border-radius: 35px; margin-bottom: 12px; box-sizing: border-box; width: 100%;
+            border-radius: 28px; margin-bottom: 10px; box-sizing: border-box; width: 100%;
             /* Allow the grid to flex and fill available vertical space so the whole game fits without scrolling */
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; overflow: hidden;
         }
 
         .word-card { 
-            background: var(--card-base); border-radius: 25px;
+            background: var(--card-base); border-radius: 18px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             font-weight: 800; text-transform: uppercase; cursor: pointer; 
-            user-select: none; text-align: center; padding: 10px; transition: background 0.15s ease;
+            user-select: none; text-align: center; padding: 6px; transition: background 0.12s ease;
         }
-        .word-text { font-size: clamp(0.8rem, 2.5vw, 1.2rem); color: #000; }
+        .word-text { font-size: clamp(0.6rem, 1.8vw, 0.95rem); color: #000; }
         
         /* LARGER FONT FOR DEFINITIONS AND PHONETICS */
         .def-container { 
-            font-size: clamp(0.65rem, 1.8vw, 0.9rem); /* Responsive sizing */
+            font-size: clamp(0.6rem, 1.4vw, 0.85rem); /* Responsive sizing */
             text-transform: none; font-weight: 500; 
             color: #111; line-height: 1.2; display: none; padding: 5px 8px; margin-top: 6px;
             background: rgba(255, 255, 255, 0.3); border-radius: 10px;
@@ -103,18 +108,21 @@
     </style>
 </head>
 <body>
-    <div id="logo-container" style="text-align:center; margin-bottom: 8px;">
-        <!-- Prefer an uploaded PNG/SVG file named 'logo.png' or 'logo-tile.png' placed in the repo root. -->
-        <img id="logo" src="logo-tile.png" alt="Intersect logo" onerror="this.style.display='none';document.getElementById('logo-svg').style.display='block';" />
+    <div class="brand-row">
+        <div class="brand-text">intersect</div>
+        <div style="display:flex; align-items:center; justify-content:flex-end;">
+            <!-- Prefer an uploaded PNG/SVG file named 'logo.png' or 'logo-tile.png' placed in the repo root. -->
+            <img id="logo" src="logo-tile.png" alt="Intersect logo" onerror="this.style.display='none';document.getElementById('logo-svg').style.display='block';" />
 
-        <!-- Inline SVG fallback (no overlaid text) -->
-        <svg id="logo-svg" viewBox="0 0 140 140" width="360" height="360" style="display:none; margin: 0 auto;">
-            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-                <circle cx="48" cy="48" r="36" stroke="#C48B6C" />
-                <circle cx="92" cy="48" r="36" stroke="#E0C49A" />
-                <circle cx="70" cy="96" r="36" stroke="#D7A66B" />
-            </g>
-        </svg>
+            <!-- Inline SVG fallback (no overlaid text) -->
+            <svg id="logo-svg" viewBox="0 0 140 140" width="360" height="360" style="display:none; margin: 0 0 0 8px;">
+                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                    <circle cx="48" cy="48" r="36" stroke="#C48B6C" />
+                    <circle cx="92" cy="48" r="36" stroke="#E0C49A" />
+                    <circle cx="70" cy="96" r="36" stroke="#D7A66B" />
+                </g>
+            </svg>
+        </div>
     </div>
     <div id="game-container">
         <div id="solved-container"></div>
