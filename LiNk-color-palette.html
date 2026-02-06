@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiNk Logo - Color Palette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        
+        .logo-preview {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: #fafafa;
+            border-radius: 16px;
+        }
+        
+        .logo-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .color-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .color-card {
+            background: #f8f8f8;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .color-info {
+            padding: 24px;
+        }
+        
+        .color-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .color-hex {
+            font-size: 32px;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .color-rgb {
+            font-size: 14px;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .copied {
+            background: #10b981 !important;
+        }
+        
+        .usage-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">LiNk Logo Color Palette</div>
+        <div class="subtitle">Official brand colors for Overlap Logic Edition</div>
+        
+        <div class="color-grid">
+            <!-- Text Color -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #333333;">
+                    <div style="color: rgba(255,255,255,0.2); font-size: 48px; font-weight: 900;">LiNk</div>
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Text Color</div>
+                    <div class="color-hex">#333333</div>
+                    <div class="color-rgb">RGB(51, 51, 51)</div>
+                    <span class="usage-tag">PRIMARY TEXT</span>
+                    <button class="copy-btn" onclick="copyColor('#333333', this)">Copy Hex</button>
+                </div>
+            </div>
+            
+            <!-- Ring 1 - Top Left (Darkest Brown) -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #B8936D;">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="8" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Ring 1 • Top-Left</div>
+                    <div class="color-hex">#B8936D</div>
+                    <div class="color-rgb">RGB(184, 147, 109)</div>
+                    <span class="usage-tag">SEED CATEGORY</span>
+                    <button class="copy-btn" onclick="copyColor('#B8936D', this)">Copy Hex</button>
+                </div>
+            </div>
+            
+            <!-- Ring 2 - Top Right (Medium Tan) -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #C4A57B;">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="8" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Ring 2 • Top-Right</div>
+                    <div class="color-hex">#C4A57B</div>
+                    <div class="color-rgb">RGB(196, 165, 123)</div>
+                    <span class="usage-tag">RED HERRING</span>
+                    <button class="copy-btn" onclick="copyColor('#C4A57B', this)">Copy Hex</button>
+                </div>
+            </div>
+            
+            <!-- Ring 3 - Bottom Left (Light/Warm) -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #D4AF80;">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="8" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Ring 3 • Bottom-Left</div>
+                    <div class="color-hex">#D4AF80</div>
+                    <div class="color-rgb">RGB(212, 175, 128)</div>
+                    <span class="usage-tag">TRICKY</span>
+                    <button class="copy-btn" onclick="copyColor('#D4AF80', this)">Copy Hex</button>
+                </div>
+            </div>
+            
+            <!-- Ring 4 - Bottom Right (Medium Brown) -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #A68860;">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="8" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Ring 4 • Bottom-Right</div>
+                    <div class="color-hex">#A68860</div>
+                    <div class="color-rgb">RGB(166, 136, 96)</div>
+                    <span class="usage-tag">EXPERT</span>
+                    <button class="copy-btn" onclick="copyColor('#A68860', this)">Copy Hex</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyColor(hex, button) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
