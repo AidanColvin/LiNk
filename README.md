@@ -1,3 +1,4 @@
+# Play the Game Here: https://aidancolvin.github.io/LiNk/
 # LiNk
 Overlap Logic Edition
 
@@ -87,4 +88,3 @@ The engine assembles the board using a specific four-step generation process:
 * **Red Herring (CALENDAR):** **DATE**, Month, Year, Week
 * **Tricky (COLORS):** **LIME**, Orange, Rose, **SILVER**
 * **Expert (METALS):** **SILVER**, Gold, Iron, Tin
-
