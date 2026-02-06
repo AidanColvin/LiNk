@@ -1,4 +1,4 @@
-# LiNK
+# LiNk
 Overlap Logic Edition
 
 This project is a Python-based word puzzle game designed to challenge deduction through a sophisticated **Overlap Logic Engine**. Unlike standard trivia, these puzzles are built on "Chains of Interference," where words logically belong to multiple categories simultaneously.
