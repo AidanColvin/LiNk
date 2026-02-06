@@ -174,7 +174,8 @@
             if (!masterBank) return;
             const batches = Object.keys(masterBank.batches);
             const randomBatchKey = batches[Math.floor(Math.random() * batches.length)];
-            let potentialCategories = masterBank.batches[randomBatchKey];
+            // Create a deep copy to avoid modifying the original template data
+            let potentialCategories = JSON.parse(JSON.stringify(masterBank.batches[randomBatchKey]));
             
             gameData = potentialCategories.length > 4 ? potentialCategories.sort(() => 0.5 - Math.random()).slice(0, 4) : potentialCategories;
             
