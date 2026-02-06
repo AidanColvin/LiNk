@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "total_categories": 130,
+    "total_batches": 13,
+    "note": "Validated unique word sets per batch",
+    "last_updated": "02-04-2026"
+  },
+  "batches": {
+    "batch_1_nature_office": [
+      { "id": 1, "name": "TREE_PARTS", "words": ["BARK", "LEAF", "ROOT", "BRANCH"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 2, "name": "DOG_SOUNDS", "words": ["WOOF", "HOWL", "GROWL", "YELP"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 3, "name": "OFFICE_DIVISIONS", "words": ["SECTOR", "SALES", "LEGAL", "ADMIN"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 4, "name": "PLANT_ACTIONS", "words": ["SOW", "SEED", "BLOOM", "GARDEN"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_2_speed_hardware": [
+      { "id": 5, "name": "INSECTS", "words": ["ANT", "FLY", "TICK", "BEETLE"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 6, "name": "URGENT_ACTIONS", "words": ["ZIP", "BOLT", "DASH", "RUSH"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 7, "name": "FASTENERS", "words": ["SCREW", "NAIL", "RIVET", "LATCH"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 8, "name": "MANICURE_TOOLS", "words": ["FILE", "BUFF", "CLIP", "POLISH"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_3_anatomy_measure": [
+      { "id": 11, "name": "BODY_PARTS", "words": ["ARM", "LEG", "HAND", "FOOT"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 12, "name": "UNITS_OF_LENGTH", "words": ["YARD", "INCH", "MILE", "METER"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 13, "name": "BACKYARD_ITEMS", "words": ["DECK", "PATIO", "GRILL", "SHED"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 14, "name": "SHIP_SECTIONS", "words": ["BRIDGE", "HULL", "MAST", "KEEL"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_4_cards_golf": [
+      { "id": 15, "name": "INTERNAL_ORGANS", "words": ["HEART", "LUNG", "LIVER", "KIDNEY"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 16, "name": "CARD_SUITS", "words": ["SPADE", "CLUB", "DIAMOND", "JOKER"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 17, "name": "GOLF_CLUBS", "words": ["IRON", "WOOD", "WEDGE", "PUTTER"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 18, "name": "METALS", "words": ["GOLD", "SILVER", "LEAD", "COPPER"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_5_kitchen_clothing": [
+      { "id": 21, "name": "KITCHEN_UTENSILS", "words": ["FORK", "SPOON", "KNIFE", "WHISK"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 22, "name": "ROAD_FEATURES", "words": ["LANE", "CURB", "SHOULDER", "MEDIAN"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 23, "name": "CLOTHING_PARTS", "words": ["SLEEVE", "COLLAR", "CUFF", "LAPEL"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 24, "name": "POLICE_ACTIONS", "words": ["BOOK", "CHARGE", "PATROL", "ARREST"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_6_fire_games": [
+      { "id": 31, "name": "CARD_GAMES", "words": ["POKER", "RUMMY", "WAR", "BRIDGE"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 32, "name": "FIREPLACE_TOOLS", "words": ["TONGS", "BRUSH", "GRATE", "BELLOWS"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 33, "name": "BASKETBALL_ACTIONS", "words": ["DUNK", "DRIVE", "BLOCK", "REBOUND"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 34, "name": "CITY_UNITS", "words": ["STREET", "WARD", "LOT", "AVENUE"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_7_size_celebs": [
+      { "id": 35, "name": "DOG_BREEDS", "words": ["BOXER", "HUSKY", "SETTER", "POINTER"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 36, "name": "CLOTHING_SIZES", "words": ["PETITE", "SLIM", "LARGE", "REGULAR"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 37, "name": "COFFEE_SIZES", "words": ["TALL", "SMALL", "SHORT", "VENTI"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 38, "name": "MOVIE_ROLES", "words": ["EXTRA", "LEAD", "STAR", "CAMEO"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_8_weather_transport": [
+      { "id": 41, "name": "WEATHER_STATES", "words": ["RAIN", "SNOW", "HAIL", "MIST"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 42, "name": "TRANSPORT_MODES", "words": ["BUS", "TRAIN", "CAB", "SUBWAY"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 43, "name": "WINE_TYPES", "words": ["RED", "WHITE", "ROSE", "DRY"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 44, "name": "WASH_CYCLES", "words": ["SPIN", "RINSE", "SOAK", "DELICATE"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_9_music_school": [
+      { "id": 51, "name": "MUSIC_GENRES", "words": ["ROCK", "JAZZ", "SOUL", "PUNK"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 52, "name": "GEOLOGY", "words": ["SHALE", "SLATE", "FLINT", "MAGMA"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 53, "name": "SCHOOL_SUPPLIES", "words": ["PEN", "RULER", "GLUE", "ERASER"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 54, "name": "LEADERSHIP", "words": ["KING", "CHIEF", "HEAD", "MAYOR"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_10_money_symbols": [
+      { "id": 61, "name": "CURRENCIES", "words": ["DOLLAR", "POUND", "EURO", "YEN"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 62, "name": "UNITS_OF_WEIGHT", "words": ["OUNCE", "GRAM", "TON", "KILO"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 63, "name": "MONEY_DOCUMENTS", "words": ["BILL", "CHECK", "BOND", "DEBIT"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 64, "name": "MUSICAL_SYMBOLS", "words": ["NOTE", "REST", "CLEF", "STAFF"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_11_shoes_tires": [
+      { "id": 75, "name": "TYPES_OF_SHOES", "words": ["PUMP", "MULE", "CLOG", "FLAT"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 76, "name": "TIRE_STATES", "words": ["BALD", "BLOWN", "LOW", "SLICK"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 77, "name": "PUMP_TYPES", "words": ["HAND", "FUEL", "WATER", "HEAT"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 78, "name": "MULE_SYNONYMS", "words": ["ASS", "DONKEY", "BEAST", "BURRO"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_12_time_fruit": [
+      { "id": 91, "name": "TIME_UNITS", "words": ["SECOND", "MINUTE", "HOUR", "DAY"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 92, "name": "ORDERS", "words": ["FIRST", "THIRD", "LAST", "NEXT"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 93, "name": "CALENDAR_UNITS", "words": ["WEEK", "MONTH", "YEAR", "DATE"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 94, "name": "FRUIT_TYPES", "words": ["FIG", "PLUM", "BERRY", "KIWI"], "difficulty": "Expert", "color": "Purple" }
+    ],
+    "batch_13_office_logic": [
+      { "id": 121, "name": "OFFICE_SUPPLIES", "words": ["CLIP", "STAPLE", "FOLDER", "TAPE"], "difficulty": "Seed", "color": "Yellow" },
+      { "id": 122, "name": "DIET_BASICS", "words": ["GRAIN", "FIBER", "PROTEIN", "CARB"], "difficulty": "Red Herring", "color": "Green" },
+      { "id": 123, "name": "ANIMAL_ENCLOSURES", "words": ["PEN", "CAGE", "FOLD", "COOP"], "difficulty": "Tricky", "color": "Blue" },
+      { "id": 124, "name": "PAPER_ACTIONS", "words": ["BEND", "CREASE", "TEAR", "RIP"], "difficulty": "Expert", "color": "Purple" }
+    ]
+  }
+}

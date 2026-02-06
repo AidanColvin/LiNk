@@ -1,0 +1,142 @@
+{
+  "batches": {
+    "batch_01": [
+      {
+        "id": 100,
+        "name": "GARDENING",
+        "words": [
+          "SOW",
+          "SEED",
+          "BLOOM",
+          "GARDEN"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 101,
+        "name": "WRITING",
+        "words": [
+          "PEN",
+          "PENCIL",
+          "MARKER",
+          "CRAYON"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 102,
+        "name": "CALENDAR",
+        "words": [
+          "DATE",
+          "MONTH",
+          "YEAR",
+          "WEEK"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 103,
+        "name": "TREE PARTS",
+        "words": [
+          "BARK",
+          "LEAF",
+          "ROOT",
+          "BRANCH"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_02": [
+      {
+        "id": 200,
+        "name": "BUSINESS",
+        "words": [
+          "SALES",
+          "LEGAL",
+          "ADMIN",
+          "SECTOR"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 201,
+        "name": "FABRIC",
+        "words": [
+          "FOLD",
+          "CREASE",
+          "BEND",
+          "PLEAT"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 202,
+        "name": "METALS",
+        "words": [
+          "SILVER",
+          "GOLD",
+          "IRON",
+          "TIN"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 203,
+        "name": "DOG SOUNDS",
+        "words": [
+          "BARK",
+          "WOOF",
+          "YELP",
+          "HOWL"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_03": [
+      {
+        "id": 300,
+        "name": "KEYBOARD",
+        "words": [
+          "SHIFT",
+          "ENTER",
+          "CONTROL",
+          "ESCAPE"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 301,
+        "name": "COLORS",
+        "words": [
+          "LIME",
+          "ORANGE",
+          "ROSE",
+          "SILVER"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 302,
+        "name": "OFFICE",
+        "words": [
+          "STAPLE",
+          "CLIP",
+          "FOLDER",
+          "BINDER"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 303,
+        "name": "FRUIT",
+        "words": [
+          "APPLE",
+          "DATE",
+          "LIME",
+          "KIWI"
+        ],
+        "color": "Expert"
+      }
+    ]
+  }
+}
