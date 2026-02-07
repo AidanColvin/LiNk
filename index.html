@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -191,4 +192,93 @@
                 if (selectedWords.find(sw => sw.text === wordObj.text)) div.classList.add('selected');
                 
                 const info = dictionary[wordObj.text] || { phon: "", def: "" };
-                div.innerHTML = 
+                div.innerHTML = `
+                    <div class="word-text">${wordObj.text}</div>
+                    <div class="def-container" id="def-${wordObj.text}">
+                        <b>${info.phon}</b><br>${info.def}
+                    </div>
+                `;
+                div.onclick = () => toggleSelect(div, wordObj);
+                gridEl.appendChild(div);
+            });
+        }
+
+        function toggleSelect(el, wordObj) {
+            const defDiv = document.getElementById(`def-${wordObj.text}`);
+            if (el.classList.contains('selected')) {
+                el.classList.remove('selected');
+                selectedWords = selectedWords.filter(w => w.text !== wordObj.text);
+                if(defDiv) defDiv.style.display = 'none';
+            } else if (selectedWords.length < 4) {
+                el.classList.add('selected');
+                selectedWords.push(wordObj);
+            }
+            document.getElementById('submit-btn').disabled = selectedWords.length !== 4;
+        }
+
+        function shuffleWords() {
+            currentWords.sort(() => Math.random() - 0.5);
+            renderGrid();
+        }
+
+        document.getElementById('shuffle-btn').onclick = shuffleWords;
+        document.getElementById('new-game-btn').onclick = () => location.reload();
+
+        document.getElementById('def-btn').onclick = () => {
+            selectedWords.forEach(w => {
+                const defDiv = document.getElementById(`def-${w.text}`);
+                if (defDiv) {
+                    const isVisible = defDiv.style.display === 'block';
+                    defDiv.style.display = isVisible ? 'none' : 'block';
+                }
+            });
+        };
+
+        document.getElementById('submit-btn').onclick = () => {
+            const firstId = selectedWords[0].catId;
+            const isMatch = selectedWords.every(w => w.catId === firstId);
+            if (isMatch) handleCorrect(firstId);
+            else handleWrong();
+        };
+
+        function handleCorrect(catId) {
+            const category = gameData.find(c => c.id === catId);
+            currentWords = currentWords.filter(w => w.catId !== catId);
+            const row = document.createElement('div');
+            row.className = 'solved-row';
+            
+            // RESTORED: Manual color mapping from your original file
+            let color = category.color; 
+            // If the JSON uses names instead of hex, map them:
+            if (category.difficulty === "Seed") color = "#90EE90";
+            else if (category.difficulty === "Red Herring") color = "#ADD8E6";
+            else if (category.difficulty === "Tricky") color = "#FFFFE0";
+            else if (category.difficulty === "Expert") color = "#FFB6C1";
+            
+            row.style.backgroundColor = color;
+            row.innerHTML = `<div>${category.name}</div><div style="font-weight:normal; font-size: 0.9rem">${category.words.join(', ')}</div>`;
+            document.getElementById('solved-container').appendChild(row);
+            
+            selectedWords = [];
+            document.getElementById('submit-btn').disabled = true;
+            renderGrid();
+            
+            if(currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
+        }
+
+        function handleWrong() {
+            mistakes--;
+            const circles = document.querySelectorAll('.circle');
+            if (circles[mistakes]) circles[mistakes].classList.add('spent');
+            const grid = document.getElementById('grid');
+            grid.classList.add('shake');
+            setTimeout(() => grid.classList.remove('shake'), 500);
+            if (mistakes === 0) {
+                setTimeout(() => { alert("Game Over!"); location.reload(); }, 600);
+            }
+        }
+
+        initGame();
+    </script>
+</body>
+</html>
