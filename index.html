@@ -3,137 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiNk</title>
+    <title>Link</title>
     <style>
         :root {
             --bg: #FFFAF0; 
-            --card-base: #C4A484; 
-            --card-selected: #D3D9E8;
+            --card-base: #E3CAA5; /* UPDATED: Tan/Brown color */
+            --card-selected: #FFE4C4; 
             --grid-line: #000;
-            --border-width: 3px; /* slightly smaller borders to help fit */
-            --seed: #90EE90;
-            --red-herring: #ADD8E6;
-            --tricky: #FFFFE0;
-            --expert: #FFB6C1;
-            --logo-vh: 14vh; /* logo height as viewport fraction (increased slightly) */
-            --header-vh: 18vh; /* total header area (logo + padding) */
+            --border-width: 4px; 
         }
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
             display: flex; flex-direction: column; align-items: center; 
             background: var(--bg); margin: 0; padding: 10px;
-            height: 100vh; justify-content: flex-start; overflow: hidden;
+            height: 100vh; justify-content: center; overflow: hidden;
         }
-        /* Header row (brand text + logo) */
-        .brand-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; max-width: 760px; margin: 0 auto 8px auto; padding: 0 8px; box-sizing: border-box; }
-        .brand-text { text-transform: lowercase; font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.4rem); letter-spacing: 2px; color: #222; }
-        /* Game container takes remaining viewport height after header */
-        #game-container { width: 100%; max-width: 760px; display: flex; flex-direction: column; height: calc(100vh - var(--header-vh) - 28px); justify-content: space-between; margin: 0 auto; }
-        h1 { text-align: center; margin: 0 0 15px 0; font-size: 2.8rem; font-weight: 300; text-transform: uppercase; letter-spacing: 6px; }
-        /* Site title override: show lowercase above the logo */
-        .site-title { text-transform: lowercase !important; font-weight: 700; font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 8px; }
-          /* Logo image (use your uploaded 'logo.png' or 'logo-tile.png').
-              Use a PNG with a transparent background. The logo height is responsive and aligned to the right. */
-          #logo { display: block; height: calc(var(--logo-vh) * 1.1); width: auto; max-width: 40%; margin: 0; background: transparent; }
-          #logo-svg { display: none; height: calc(var(--logo-vh) * 1.1); width: auto; max-width: 40%; margin: 0; }
+        
+        #game-container { width: 100%; max-width: 620px; }
+        
+        /* HEADER: link + Triple Circle SVG */
+        .header-container {
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; margin-bottom: 25px;
+        }
+        
+        h1 { 
+            margin: 0; font-size: 4rem; font-weight: 700; color: #1a1a1a; 
+            text-transform: lowercase; letter-spacing: 1px;
+        }
+
+        .logo-svg {
+            width: 65px; height: 65px;
+            stroke: #C4A484; stroke-width: 8; fill: none;
+        }
 
         .grid { 
-            display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr;
-            gap: calc(var(--border-width) + 1px); padding: calc(var(--border-width) + 1px);
-            background-color: var(--grid-line); border: var(--border-width) solid var(--grid-line);
-            border-radius: 28px; margin-bottom: 10px; box-sizing: border-box; width: 100%;
-            /* Allow the grid to flex and fill available vertical space so the whole game fits without scrolling */
-            flex: 1; min-height: 0; overflow: hidden;
+            display: grid; grid-template-columns: repeat(4, 1fr); 
+            gap: var(--border-width); padding: var(--border-width); 
+            background-color: var(--grid-line); 
+            border: var(--border-width) solid var(--grid-line); 
+            border-radius: 35px; margin-bottom: 20px;
+            box-sizing: border-box;
+            min-height: 350px; 
         }
 
         .word-card { 
-            background: var(--card-base); border-radius: 18px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            font-weight: 800; text-transform: uppercase; cursor: pointer; 
-            user-select: none; text-align: center; padding: 6px; transition: background 0.12s ease;
+            aspect-ratio: 1/1; 
+            background: var(--card-base); 
+            border-radius: 25px; 
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            font-weight: 800; text-transform: uppercase; 
+            cursor: pointer; user-select: none; text-align: center; 
+            padding: 5px; font-size: 0.9rem;
+            transition: background 0.15s ease;
+            position: relative;
         }
-        .word-text { font-size: clamp(0.6rem, 1.8vw, 0.95rem); color: #000; }
+        @media(min-width: 500px) { .word-card { font-size: 1rem; padding: 10px; } }
         
-        /* LARGER FONT FOR DEFINITIONS AND PHONETICS */
+        .word-card.selected { background: var(--card-selected); }
+        
+        .word-text { font-size: 1.1rem; color: #000; letter-spacing: 0.5px; z-index: 2; }
+        
+        /* DEFINITION STYLING: Hidden by default */
         .def-container { 
-            font-size: clamp(0.6rem, 1.4vw, 0.85rem); /* Responsive sizing */
-            text-transform: none; font-weight: 500; 
-            color: #111; line-height: 1.2; display: none; padding: 5px 8px; margin-top: 6px;
-            background: rgba(255, 255, 255, 0.3); border-radius: 10px;
-        }
-        .phonetic-text { 
-            font-size: 1rem; /* Increased from 0.7rem */
-            font-style: italic; color: #333; display: block; margin-bottom: 3px; font-weight: bold;
+            display: none; 
+            font-size: 0.65em; 
+            margin-top: 5px; 
+            font-weight: normal; 
+            text-transform: none; 
+            line-height: 1.2;
+            color: #222;
+            background: rgba(255,255,255,0.5);
+            padding: 4px;
+            border-radius: 6px;
+            width: 90%;
         }
 
-        .word-card.selected { background: var(--card-selected); filter: brightness(1.1); }
-
-        .controls-row { 
-            display: flex; gap: 6px; justify-content: center; 
-            margin-bottom: 8px; width: 100%; padding: 0 5px; box-sizing: border-box;
+        .controls { 
+            display: flex; gap: 10px; justify-content: center; 
+            margin-bottom: 12px; width: 100%; padding: 0 10px; box-sizing: border-box;
         }
         
         button { 
-            flex: 1; padding: 10px 0; border-radius: 50px; 
-            border: var(--border-width) solid #000; background: transparent; 
-            cursor: pointer; font-size: clamp(0.7rem, 1.6vw, 0.9rem); color: #000; font-weight: bold;
+            flex: 1; padding: 12px 0; border-radius: 50px; 
+            border: 3px solid #000; background: transparent; 
+            font-weight: 700; cursor: pointer; font-size: 1rem; color: #000;
         }
-        button:hover { background: rgba(0,0,0,0.05); }
-        button:disabled { opacity: 0.3; cursor: not-allowed; }
+        button:hover { background: rgba(0,0,0,0.05); } 
+        button:disabled { opacity: 0.3; cursor: not-allowed; border-color: #999; color: #999; }
         
-        .bottom-bar { display: flex; align-items: center; justify-content: flex-end; width: 100%; padding-right: 20px; box-sizing: border-box; }
-        .attempts-section { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-size: 1.1rem; white-space: nowrap; }
-        .circles-container { display: flex; flex-direction: row; align-items: center; gap: 8px; }
-        .circle { width: 16px; height: 16px; background: var(--card-base); border-radius: 50%; border: 2px solid #000; }
-        .circle.spent { opacity: 0; }
+        #submit-btn.active { background-color: #000; color: #fff; }
+
+        .attempts-section { 
+            display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+            font-weight: 600; font-size: 1.1rem; width: 100%; padding-right: 15px; 
+        }
+        .circle { 
+            width: 18px; height: 18px; 
+            background: #C4A484; /* Matches logo color */
+            border: 2px solid #000; border-radius: 50%;
+        }
+        .circle.spent { background: transparent; }
 
         .solved-row { 
-            width: 100%; height: 70px; border-radius: 20px; display: flex; 
-            flex-direction: column; align-items: center; justify-content: center; 
-            margin-bottom: 6px; font-weight: 800; text-transform: uppercase; 
-            border: var(--border-width) solid var(--grid-line); 
+            grid-column: span 4; height: 80px; border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-weight: 800; text-transform: uppercase; margin-bottom: 5px; text-align: center;
         }
-
-        /* Small screens: reduce spacing so the entire board fits */
-        @media (max-width: 720px) {
-            #logo { width: 260px; }
-            #logo-svg { width: 260px; }
-            .solved-row { height: 60px; }
-            .controls-row { gap: 4px; }
-            .grid { gap: 6px; padding: 6px; }
-        }
-
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
-        .shake { animation: shake 0.2s ease-in-out 0s 2; }
     </style>
 </head>
 <body>
-    <div class="brand-row">
-        <div class="brand-text">LiNk</div>
-        <div style="display:flex; align-items:center; justify-content:flex-end;">
-            <!-- Prefer an uploaded PNG/SVG file named 'logo.png' or 'logo-tile.png' placed in the repo root. -->
-            <img id="logo" src="logo-tile.png" alt="LiNk logo" onerror="this.style.display='none';document.getElementById('logo-svg').style.display='block';" />
 
-            <!-- Inline SVG fallback (no overlaid text) -->
-            <svg id="logo-svg" viewBox="0 0 140 140" width="360" height="360" style="display:none; margin: 0 0 0 8px;">
-                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-                    <circle cx="48" cy="48" r="36" stroke="#C48B6C" />
-                    <circle cx="92" cy="48" r="36" stroke="#E0C49A" />
-                    <circle cx="70" cy="96" r="36" stroke="#D7A66B" />
-                </g>
-            </svg>
-        </div>
+    <div class="header-container">
+        <h1>link</h1>
+        <svg class="logo-svg" viewBox="0 0 100 100">
+            <circle cx="35" cy="35" r="25" />
+            <circle cx="65" cy="35" r="25" />
+            <circle cx="50" cy="65" r="25" />
+        </svg>
     </div>
+    
     <div id="game-container">
-        <div id="solved-container"></div>
         <div id="grid" class="grid"></div>
         
-        <div class="controls-row">
+        <div class="controls">
             <button id="shuffle-btn">Shuffle</button>
             <button id="def-btn">Definitions</button>
             <button id="submit-btn" disabled>Submit</button>
-            <button id="new-game-btn">New Game</button>
         </div>
+        
+        <div style="text-align: center; margin-top: 5px;">
+            <button id="new-game-btn" style="border: none; text-decoration: underline; font-size: 1rem; padding: 5px 20px;">New Game</button>
+        </div>
+
 
         <div class="bottom-bar">
             <div class="attempts-section">
@@ -146,102 +149,61 @@
     </div>
 
     <script>
-        // EXPANDED DICTIONARY
-        const dictionary = {
-            "APPLE": { phon: "/ˈæp.əl/", def: "A round fruit with red or green skin." },
-            "DATE": { phon: "/deɪt/", def: "A sweet brown fruit or a specific day." },
-            "LIME": { phon: "/laɪm/", def: "A small, green, sour citrus fruit." },
-            "KIWI": { phon: "/ˈkiː.wiː/", def: "A small fruit with thin hairy skin." },
-            "MONTH": { phon: "/mʌnθ/", def: "One of the twelve periods of a year." },
-            "YEAR": { phon: "/jɪər/", def: "The time it takes Earth to orbit the sun." },
-            "WEEK": { phon: "/wiːk/", def: "A period of seven days." },
-            "ORANGE": { phon: "/ˈɒr.ɪndʒ/", def: "A bright reddish-yellow citrus fruit." },
-            "ROSE": { phon: "/roʊz/", def: "A sweet-smelling flower with thorny stems." },
-            "SILVER": { phon: "/ˈsɪl.vər/", def: "A shiny grey-white precious metal." },
-            "GOLD": { phon: "/ɡoʊld/", def: "A precious yellow metal." },
-            "IRON": { phon: "/ˈaɪ.ən/", def: "A strong, hard magnetic silver-grey metal." },
-            "TIN": { phon: "/tɪn/", def: "A silvery-white metal often used for cans." },
-            "BARK": { phon: "/bɑːrk/", def: "Outer covering of a tree or a dog's cry." },
-            "WOOF": { phon: "/wʊf/", def: "The sound a dog makes." },
-            "YELP": { phon: "/jelp/", def: "A short, sharp cry or bark." },
-            "HOWL": { phon: "/haʊl/", def: "A long, loud, doleful cry by a wolf or dog." },
-            "LEAF": { phon: "/liːf/", def: "Green part of a plant attached to a stem." },
-            "ROOT": { phon: "/ruːt/", def: "Part of a plant that attaches to the ground." },
-            "BRANCH": { phon: "/brɑːntʃ/", def: "A part of a tree growing out from the trunk." },
-            "SALES": { phon: "/seɪlz/", def: "The exchange of a commodity for money." },
-            "LEGAL": { phon: "/ˈliː.ɡəl/", def: "Related to or permitted by law." },
-            "ADMIN": { phon: "/ˈæd.mɪn/", def: "The management of business operations." },
-            "SECTOR": { phon: "/ˈsek.tər/", def: "A distinct part or branch of an economy." },
-            "SOW": { phon: "/soʊ/", def: "To plant seed by scattering." },
-            "SEED": { phon: "/siːd/", def: "A flowering plant's unit of reproduction." },
-            "BLOOM": { phon: "/bluːm/", def: "A flower, especially one cultivated for beauty." },
-            "GARDEN": { phon: "/ˈɡɑːr.dən/", def: "A piece of ground used for growing plants." },
-            "PEN": { phon: "/pen/", def: "An instrument for writing with ink." },
-            "PENCIL": { phon: "/ˈpen.səl/", def: "A thin rod of graphite used for writing." },
-            "MARKER": { phon: "/ˈmɑːr.kər/", def: "A felt-tip pen with a broad tip." },
-            "CRAYON": { phon: "/ˈkreɪ.ɒn/", def: "A pencil or stick of colored wax." },
-            "STAPLE": { phon: "/ˈsteɪ.pəl/", def: "A small wire fastner." },
-            "CLIP": { phon: "/klɪp/", def: "A flexible device for holding things together." },
-            "FOLDER": { phon: "/ˈfoʊl.dər/", def: "A folding cover for loose papers." },
-            "BINDER": { phon: "/ˈbaɪn.dər/", def: "A cover for holding sheets of paper together." },
-            "SHIFT": { phon: "/ʃɪft/", def: "To move or change position." },
-            "ENTER": { phon: "/ˈen.tər/", def: "To come or go into a place." },
-            "CONTROL": { phon: "/kənˈtroʊl/", def: "The power to influence behavior." },
-            "ESCAPE": { phon: "/ɪˈskeɪp/", def: "To break free from confinement." },
-            "FOLD": { phon: "/foʊld/", def: "To bend something over on itself." },
-            "CREASE": { phon: "/kriːs/", def: "A line or ridge produced by folding." },
-            "BEND": { phon: "/bend/", def: "To shape into a curve or angle." },
-            "PLEAT": { phon: "/pliːt/", def: "A double or multiple fold in cloth." }
-        };
-
-        let gameData = [], currentWords = [], selectedWords = [], mistakes = 4, masterBank = null;
+        let gameData = [];
+        let dictionary = {}; 
+        let currentWords = [];
+        let selectedWords = [];
+        let mistakes = 4;
+        let solvedCategories = [];
 
         async function initGame() {
             try {
+                // LOAD DATA
                 const response = await fetch('master_category_bank.json');
-                if (!response.ok) throw new Error("File not found");
-                masterBank = await response.json();
-                loadNewPuzzle();
+                const data = await response.json();
+                
+                // LOAD DICTIONARY TO FIX 'LOADING' BUG
+                dictionary = data.dictionary || {};
+
+                // PICK BATCH
+                const batchKeys = Object.keys(data.batches);
+                const randomKey = batchKeys[Math.floor(Math.random() * batchKeys.length)];
+                gameData = data.batches[randomKey];
+                
+                currentWords = gameData.flatMap(cat => cat.words.map(w => ({ text: w, catId: cat.id })));
+                shuffleWords();
             } catch (e) { 
-                console.error("Data Load Error:", e);
-                alert("Could not load master_category_bank.json.");
+                console.error("Error loading JSON", e);
+                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center;padding:20px'>Error loading data. Try refreshing.</div>";
             }
-        }
-
-        function loadNewPuzzle() {
-            if (!masterBank) return;
-            const batches = Object.keys(masterBank.batches);
-            const randomBatchKey = batches[Math.floor(Math.random() * batches.length)];
-            // Create a deep copy to avoid modifying the original template data
-            let potentialCategories = JSON.parse(JSON.stringify(masterBank.batches[randomBatchKey]));
-            
-            gameData = potentialCategories.length > 4 ? potentialCategories.sort(() => 0.5 - Math.random()).slice(0, 4) : potentialCategories;
-            
-            mistakes = 4;
-            selectedWords = [];
-            document.getElementById('solved-container').innerHTML = '';
-            document.querySelectorAll('.circle').forEach(c => c.classList.remove('spent'));
-            document.getElementById('submit-btn').disabled = true;
-
-            currentWords = [];
-            gameData.forEach(cat => cat.words.forEach(word => currentWords.push({ text: word, catId: cat.id, color: cat.color })));
-            shuffleWords();
         }
 
         function renderGrid() {
             const gridEl = document.getElementById('grid');
-            gridEl.innerHTML = '';
+            gridEl.innerHTML = ''; 
+
+            // SOLVED ROWS
+            solvedCategories.forEach(cat => {
+                const row = document.createElement('div');
+                row.className = 'solved-row';
+                row.style.backgroundColor = cat.color;
+                row.innerHTML = `<div>${cat.name}</div><div style="font-weight:normal; font-size:0.8rem">${cat.words.join(', ')}</div>`;
+                gridEl.appendChild(row);
+            });
+
+            // ACTIVE CARDS
             currentWords.forEach(wordObj => {
                 const div = document.createElement('div');
                 div.className = 'word-card';
                 if (selectedWords.find(sw => sw.text === wordObj.text)) div.classList.add('selected');
                 
-                const info = dictionary[wordObj.text] || { phon: "[Phonetic Unavailable]", def: "Definition needs to be added to index.html." };
+                // DATA FOR DEFINITIONS
+                const info = dictionary[wordObj.text] || { phon: "", def: "No definition found" };
+                
                 div.innerHTML = `
                     <div class="word-text">${wordObj.text}</div>
                     <div class="def-container" id="def-${wordObj.text}">
-                        <span class="phonetic-text">${info.phon}</span>
-                        ${info.def}
+                        <b>${info.phon}</b><br>${info.def}
                     </div>
                 `;
                 div.onclick = () => toggleSelect(div, wordObj);
@@ -250,16 +212,26 @@
         }
 
         function toggleSelect(el, wordObj) {
+            if (solvedCategories.some(c => c.id === wordObj.catId)) return;
             if (el.classList.contains('selected')) {
                 el.classList.remove('selected');
                 selectedWords = selectedWords.filter(w => w.text !== wordObj.text);
-                const def = document.getElementById(`def-${wordObj.text}`);
-                if(def) def.style.display = 'none';
             } else if (selectedWords.length < 4) {
                 el.classList.add('selected');
                 selectedWords.push(wordObj);
             }
-            document.getElementById('submit-btn').disabled = selectedWords.length !== 4;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const submitBtn = document.getElementById('submit-btn');
+            if (selectedWords.length === 4) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('active');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('active');
+            }
         }
 
         function shuffleWords() {
@@ -268,44 +240,43 @@
         }
 
         document.getElementById('shuffle-btn').onclick = shuffleWords;
-        document.getElementById('new-game-btn').onclick = loadNewPuzzle;
+        document.getElementById('new-game-btn').onclick = () => location.reload();
+
+        // FIXED DEFINITIONS TOGGLE
         document.getElementById('def-btn').onclick = () => {
             selectedWords.forEach(w => {
-                const def = document.getElementById(`def-${w.text}`);
-                if (def) def.style.display = (def.style.display === 'block') ? 'none' : 'block';
+                const defEl = document.getElementById(`def-${w.text}`);
+                if (defEl) {
+                    const isHidden = (window.getComputedStyle(defEl).display === 'none');
+                    defEl.style.display = isHidden ? 'block' : 'none';
+                }
             });
         };
 
         document.getElementById('submit-btn').onclick = () => {
+            if (selectedWords.length !== 4) return;
             const firstId = selectedWords[0].catId;
             const isMatch = selectedWords.every(w => w.catId === firstId);
-            if (isMatch) handleCorrect(firstId);
-            else handleWrong();
+
+            if (isMatch) {
+                const category = gameData.find(c => c.id === firstId);
+                solvedCategories.push(category);
+                currentWords = currentWords.filter(w => w.catId !== firstId);
+                selectedWords = [];
+                renderGrid();
+                if (currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
+            } else {
+                mistakes--;
+                const circles = document.querySelectorAll('.circle');
+                if (circles[mistakes]) circles[mistakes].classList.add('spent');
+                
+                const grid = document.getElementById('grid');
+                grid.classList.add('shake');
+                setTimeout(() => grid.classList.remove('shake'), 500);
+                
+                if (mistakes === 0) setTimeout(() => { alert("Game Over!"); location.reload(); }, 600);
+            }
         };
-
-        function handleCorrect(catId) {
-            const category = gameData.find(c => c.id === catId);
-            currentWords = currentWords.filter(w => w.catId !== catId);
-            const row = document.createElement('div');
-            row.className = 'solved-row';
-            const colorMap = { "Seed": "--seed", "Red Herring": "--red-herring", "Tricky": "--tricky", "Expert": "--expert" };
-            row.style.backgroundColor = `var(${colorMap[category.color] || "--card-base"})`;
-            row.innerHTML = `<div>${category.name}</div><div style="font-weight:normal; font-size: 0.9rem">${category.words.join(', ')}</div>`;
-            document.getElementById('solved-container').prepend(row);
-            selectedWords = [];
-            document.getElementById('submit-btn').disabled = true;
-            renderGrid();
-        }
-
-        function handleWrong() {
-            mistakes--;
-            const circles = document.querySelectorAll('.circle');
-            if (circles[mistakes]) circles[mistakes].classList.add('spent');
-            const grid = document.getElementById('grid');
-            grid.classList.add('shake');
-            setTimeout(() => grid.classList.remove('shake'), 500);
-            if (mistakes === 0) { setTimeout(() => { alert("Game Over!"); loadNewPuzzle(); }, 600); }
-        }
 
         initGame();
     </script>
