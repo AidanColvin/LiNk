@@ -125,8 +125,8 @@
             <button id="submit-btn" disabled>Submit</button>
         </div>
         
-        <div style="text-align:center; padding-bottom: 10px;">
-            <button id="new-game-btn" style="border:none; font-size:1rem; text-decoration:underline; width: auto; padding: 5px 20px;">New Game</button>
+        <div style="text-align: center; margin-top: 5px;">
+            <button id="new-game-btn" style="border: none; text-decoration: underline; font-size: 1rem; padding: 5px 20px;">New Game</button>
         </div>
 
         <div class="attempts-section">
@@ -143,21 +143,13 @@
     <script>
         const dictionary = {
             "BARK": { phon: "bɑːrk", def: "The protective outer covering of a tree trunk." },
-            "LEAF": { phon: "liːf", def: "A flattened structure of a higher plant, typically green." },
-            "ROOT": { phon: "ruːt", def: "The part of a plant that attaches it to the ground." },
-            "BRANCH": { phon: "bræntʃ", def: "A part of a tree which grows out from the trunk." },
+            "LEAF": { phon: "liːf", def: "A flattened structure of a higher plant." },
+            "ROOT": { phon: "ruːt", def: "The part of a plant attaching it to the ground." },
+            "BRANCH": { phon: "bræntʃ", def: "A part of a tree growing out from the trunk." },
             "SALES": { phon: "seɪlz", def: "The department responsible for selling goods." },
             "LEGAL": { phon: "ˈliːɡl", def: "Related to or permitted by law." },
             "ADMIN": { phon: "ˈædmɪn", def: "The management of public or business affairs." },
-            "SECTOR": { phon: "ˈsektər", def: "An area or portion that is distinct from others." },
-            "SOW": { phon: "soʊ", def: "To plant seed by scattering it on or in the earth." },
-            "SEED": { phon: "siːd", def: "A flowering plant's unit of reproduction." },
-            "BLOOM": { phon: "bluːm", def: "A flower, especially one cultivated for its beauty." },
-            "GARDEN": { phon: "ˈɡɑːrdn", def: "A piece of ground used for growing flowers or fruit." },
-            "WOOF": { phon: "wʊf", def: "The sound made by a barking dog." },
-            "HOWL": { phon: "haʊl", def: "A long, loud, doleful cry uttered by an animal." },
-            "GROWL": { phon: "ɡraʊl", def: "A low guttural sound made in the throat by an animal." },
-            "YELP": { phon: "jelp", def: "A short, sharp cry, especially of pain or alarm." }
+            "SECTOR": { phon: "ˈsektər", def: "An area or portion that is distinct from others." }
         };
 
         let gameData = [];
@@ -167,18 +159,22 @@
 
         async function initGame() {
             try {
-                // RESTORED: Pointing to master_category_bank.json but using old logic structure
+                // FIXED BRIDGE: Points to the master bank
                 const response = await fetch('master_category_bank.json');
                 const data = await response.json();
                 
-                // Randomly select a batch from the new file
+                // FIXED LOGIC: Handles the 'batches' structure correctly
                 const batchKeys = Object.keys(data.batches);
                 const randomKey = batchKeys[Math.floor(Math.random() * batchKeys.length)];
                 gameData = data.batches[randomKey];
                 
                 currentWords = gameData.flatMap(cat => cat.words.map(w => ({ text: w, catId: cat.id })));
                 shuffleWords();
-            } catch (e) { console.error("Error loading JSON", e); }
+            } catch (e) { 
+                console.error("Error loading JSON", e);
+                // Fallback if file not found
+                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center'>Loading Error. Refresh or check data file.</div>";
+            }
         }
 
         function renderGrid() {
@@ -247,14 +243,13 @@
             const row = document.createElement('div');
             row.className = 'solved-row';
             
-            // RESTORED: Manual color mapping from your original file
-            let color = category.color; 
-            // If the JSON uses names instead of hex, map them:
+            // Logic to color rows based on difficulty string OR explicit color code
+            let color = category.color;
             if (category.difficulty === "Seed") color = "#90EE90";
             else if (category.difficulty === "Red Herring") color = "#ADD8E6";
             else if (category.difficulty === "Tricky") color = "#FFFFE0";
             else if (category.difficulty === "Expert") color = "#FFB6C1";
-            
+
             row.style.backgroundColor = color;
             row.innerHTML = `<div>${category.name}</div><div style="font-weight:normal; font-size: 0.9rem">${category.words.join(', ')}</div>`;
             document.getElementById('solved-container').appendChild(row);
@@ -263,7 +258,9 @@
             document.getElementById('submit-btn').disabled = true;
             renderGrid();
             
-            if(currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
+            if (currentWords.length === 0) {
+                setTimeout(() => { alert("You Win!"); }, 500);
+            }
         }
 
         function handleWrong() {
