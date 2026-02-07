@@ -53,56 +53,6 @@
     "batch_02": [
       {
         "id": 5,
-        "name": "FRUITS SET 5",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "DATE",
-          "GUAVA",
-          "APRICOT",
-          "COCONUT"
-        ]
-      },
-      {
-        "id": 6,
-        "name": "FRUITS SET 6",
-        "difficulty": "Red Herring",
-        "color": "#ADD8E6",
-        "words": [
-          "APPLE",
-          "LIME",
-          "KIWI",
-          "FIG"
-        ]
-      },
-      {
-        "id": 7,
-        "name": "FRUITS SET 7",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "BANANA",
-          "MANGO",
-          "MELON",
-          "DATE"
-        ]
-      },
-      {
-        "id": 8,
-        "name": "FRUITS SET 8",
-        "difficulty": "Expert",
-        "color": "#FFB6C1",
-        "words": [
-          "CHERRY",
-          "PEACH",
-          "ORANGE",
-          "GUAVA"
-        ]
-      }
-    ],
-    "batch_03": [
-      {
-        "id": 11,
         "name": "VEGETABLES SET 1",
         "difficulty": "Tricky",
         "color": "#FFFFE0",
@@ -114,7 +64,7 @@
         ]
       },
       {
-        "id": 12,
+        "id": 6,
         "name": "VEGETABLES SET 2",
         "difficulty": "Expert",
         "color": "#FFB6C1",
@@ -126,7 +76,7 @@
         ]
       },
       {
-        "id": 13,
+        "id": 7,
         "name": "VEGETABLES SET 3",
         "difficulty": "Seed",
         "color": "#90EE90",
@@ -138,7 +88,7 @@
         ]
       },
       {
-        "id": 14,
+        "id": 8,
         "name": "VEGETABLES SET 4",
         "difficulty": "Red Herring",
         "color": "#ADD8E6",
@@ -150,9 +100,9 @@
         ]
       }
     ],
-    "batch_04": [
+    "batch_03": [
       {
-        "id": 21,
+        "id": 9,
         "name": "COLORS SET 1",
         "difficulty": "Seed",
         "color": "#90EE90",
@@ -164,7 +114,7 @@
         ]
       },
       {
-        "id": 22,
+        "id": 10,
         "name": "COLORS SET 2",
         "difficulty": "Red Herring",
         "color": "#ADD8E6",
@@ -176,279 +126,219 @@
         ]
       },
       {
-        "id": 31,
-        "name": "WILD ANIMALS SET 1",
+        "id": 11,
+        "name": "COLORS SET 3",
         "difficulty": "Tricky",
         "color": "#FFFFE0",
         "words": [
-          "LION",
-          "TIGER",
-          "BEAR",
-          "WOLF"
+          "BLACK",
+          "WHITE",
+          "GRAY",
+          "VIOLET"
         ]
       },
       {
-        "id": 32,
-        "name": "WILD ANIMALS SET 2",
+        "id": 12,
+        "name": "COLORS SET 4",
         "difficulty": "Expert",
         "color": "#FFB6C1",
         "words": [
-          "FOX",
-          "DEER",
-          "ELK",
-          "MOOSE"
-        ]
-      }
-    ],
-    "batch_05": [
-      {
-        "id": 41,
-        "name": "FARM ANIMALS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "COW",
-          "PIG",
-          "SHEEP",
-          "GOAT"
-        ]
-      },
-      {
-        "id": 61,
-        "name": "FISH SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "SALMON",
-          "TROUT",
-          "TUNA",
-          "COD"
-        ]
-      },
-      {
-        "id": 71,
-        "name": "INSECTS SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "ANT",
-          "BEE",
-          "BEETLE",
-          "BUTTERFLY"
-        ]
-      },
-      {
-        "id": 81,
-        "name": "TREES SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "OAK",
-          "MAPLE",
-          "PINE",
-          "CEDAR"
-        ]
-      }
-    ],
-    "batch_06": [
-      {
-        "id": 91,
-        "name": "FLOWERS SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "ROSE",
-          "TULIP",
-          "LILY",
-          "DAISY"
-        ]
-      },
-      {
-        "id": 101,
-        "name": "HERBS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "BASIL",
-          "THYME",
-          "SAGE",
-          "MINT"
-        ]
-      },
-      {
-        "id": 111,
-        "name": "SPICES SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "PEPPER",
-          "CUMIN",
-          "PAPRIKA",
-          "CINNAMON"
-        ]
-      },
-      {
-        "id": 121,
-        "name": "DESSERTS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "CAKE",
-          "PIE",
-          "COOKIE",
-          "BROWNIE"
-        ]
-      }
-    ],
-    "batch_07": [
-      {
-        "id": 131,
-        "name": "DRINKS SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "WATER",
-          "JUICE",
-          "SODA",
-          "TEA"
-        ]
-      },
-      {
-        "id": 141,
-        "name": "SPORTS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "SOCCER",
-          "TENNIS",
-          "BASEBALL",
-          "FOOTBALL"
-        ]
-      },
-      {
-        "id": 151,
-        "name": "INSTRUMENTS SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "PIANO",
-          "GUITAR",
-          "VIOLIN",
-          "CELLO"
-        ]
-      },
-      {
-        "id": 161,
-        "name": "VEHICLES SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "CAR",
-          "TRUCK",
-          "BUS",
-          "VAN"
-        ]
-      }
-    ],
-    "batch_08": [
-      {
-        "id": 171,
-        "name": "TOOLS SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "HAMMER",
-          "SAW",
-          "DRILL",
-          "WRENCH"
-        ]
-      },
-      {
-        "id": 181,
-        "name": "KITCHEN ITEMS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "PAN",
-          "POT",
-          "BOWL",
-          "PLATE"
-        ]
-      },
-      {
-        "id": 191,
-        "name": "FURNITURE SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "CHAIR",
-          "TABLE",
-          "SOFA",
-          "COUCH"
-        ]
-      },
-      {
-        "id": 201,
-        "name": "CLOTHING SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "SHIRT",
-          "PANTS",
-          "DRESS",
-          "SKIRT"
-        ]
-      }
-    ],
-    "batch_09": [
-      {
-        "id": 211,
-        "name": "SHOES SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "BOOT",
-          "SNEAKER",
-          "SANDAL",
-          "LOAFER"
-        ]
-      },
-      {
-        "id": 221,
-        "name": "WEATHER SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "RAIN",
-          "SNOW",
-          "SLEET",
-          "HAIL"
-        ]
-      },
-      {
-        "id": 231,
-        "name": "GEOGRAPHY SET 1",
-        "difficulty": "Tricky",
-        "color": "#FFFFE0",
-        "words": [
-          "RIVER",
-          "LAKE",
-          "OCEAN",
-          "SEA"
-        ]
-      },
-      {
-        "id": 241,
-        "name": "BODY PARTS SET 1",
-        "difficulty": "Seed",
-        "color": "#90EE90",
-        "words": [
-          "HEAD",
-          "HAIR",
-          "EAR",
-          "EYE"
+          "INDIGO",
+          "CYAN",
+          "MAGENTA",
+          "TEAL"
         ]
       }
     ]
+  },
+  "dictionary": {
+    "APPLE": {
+      "phon": "/\u02c8\u00e6p.\u0259l/",
+      "def": "A round fruit with red or green skin."
+    },
+    "BANANA": {
+      "phon": "/b\u0259\u02c8n\u00e6n.\u0259/",
+      "def": "A long curved fruit with yellow skin."
+    },
+    "CHERRY": {
+      "phon": "/\u02c8t\u0283er.i/",
+      "def": "A small, round, soft red or black fruit."
+    },
+    "GRAPE": {
+      "phon": "/\u0261re\u026ap/",
+      "def": "A berry growing in clusters on a vine."
+    },
+    "LEMON": {
+      "phon": "/\u02c8lem.\u0259n/",
+      "def": "A yellow, oval citrus fruit with thick skin."
+    },
+    "LIME": {
+      "phon": "/la\u026am/",
+      "def": "A green, oval citrus fruit with acidic juice."
+    },
+    "MANGO": {
+      "phon": "/\u02c8m\u00e6\u014b.\u0261\u0259\u028a/",
+      "def": "An oval tropical fruit with yellow-red skin."
+    },
+    "PEACH": {
+      "phon": "/pi\u02d0t\u0283/",
+      "def": "A round fruit with juicy yellow flesh and downy skin."
+    },
+    "CARROT": {
+      "phon": "/\u02c8k\u00e6r.\u0259t/",
+      "def": "A long pointed orange root vegetable."
+    },
+    "POTATO": {
+      "phon": "/p\u0259\u02c8te\u026a.t\u0259\u028a/",
+      "def": "A starchy plant tuber that is cooked and eaten."
+    },
+    "TOMATO": {
+      "phon": "/t\u0259\u02c8m\u0251\u02d0.t\u0259\u028a/",
+      "def": "A glossy red, pulpy edible fruit eaten as a vegetable."
+    },
+    "ONION": {
+      "phon": "/\u02c8\u028cn.j\u0259n/",
+      "def": "A vegetable with a strong smell and flavor."
+    },
+    "BROCCOLI": {
+      "phon": "/broccoli/",
+      "def": "Definition currently unavailable."
+    },
+    "BLUE": {
+      "phon": "/blue/",
+      "def": "Definition currently unavailable."
+    },
+    "BERRY": {
+      "phon": "/berry/",
+      "def": "Definition currently unavailable."
+    },
+    "CELERY": {
+      "phon": "/celery/",
+      "def": "Definition currently unavailable."
+    },
+    "SPINACH": {
+      "phon": "/spinach/",
+      "def": "Definition currently unavailable."
+    },
+    "VIOLET": {
+      "phon": "/violet/",
+      "def": "Definition currently unavailable."
+    },
+    "PEPPER": {
+      "phon": "/pepper/",
+      "def": "Definition currently unavailable."
+    },
+    "TEAL": {
+      "phon": "/teal/",
+      "def": "Definition currently unavailable."
+    },
+    "GREEN": {
+      "phon": "/green/",
+      "def": "Definition currently unavailable."
+    },
+    "RED": {
+      "phon": "/red/",
+      "def": "Definition currently unavailable."
+    },
+    "WHITE": {
+      "phon": "/white/",
+      "def": "Definition currently unavailable."
+    },
+    "BEET": {
+      "phon": "/beet/",
+      "def": "Definition currently unavailable."
+    },
+    "PINK": {
+      "phon": "/pink/",
+      "def": "Definition currently unavailable."
+    },
+    "LETTUCE": {
+      "phon": "/lettuce/",
+      "def": "Definition currently unavailable."
+    },
+    "KIWI": {
+      "phon": "/kiwi/",
+      "def": "Definition currently unavailable."
+    },
+    "INDIGO": {
+      "phon": "/indigo/",
+      "def": "Definition currently unavailable."
+    },
+    "MAGENTA": {
+      "phon": "/magenta/",
+      "def": "Definition currently unavailable."
+    },
+    "GRAY": {
+      "phon": "/gray/",
+      "def": "Definition currently unavailable."
+    },
+    "FIG": {
+      "phon": "/fig/",
+      "def": "Definition currently unavailable."
+    },
+    "PLUM": {
+      "phon": "/plum/",
+      "def": "Definition currently unavailable."
+    },
+    "SQUASH": {
+      "phon": "/squash/",
+      "def": "Definition currently unavailable."
+    },
+    "YELLOW": {
+      "phon": "/yellow/",
+      "def": "Definition currently unavailable."
+    },
+    "BLACK": {
+      "phon": "/black/",
+      "def": "Definition currently unavailable."
+    },
+    "CYAN": {
+      "phon": "/cyan/",
+      "def": "Definition currently unavailable."
+    },
+    "PAPAYA": {
+      "phon": "/papaya/",
+      "def": "Definition currently unavailable."
+    },
+    "RADISH": {
+      "phon": "/radish/",
+      "def": "Definition currently unavailable."
+    },
+    "TURNIP": {
+      "phon": "/turnip/",
+      "def": "Definition currently unavailable."
+    },
+    "ORANGE": {
+      "phon": "/orange/",
+      "def": "Definition currently unavailable."
+    },
+    "CABBAGE": {
+      "phon": "/cabbage/",
+      "def": "Definition currently unavailable."
+    },
+    "PEAR": {
+      "phon": "/pear/",
+      "def": "Definition currently unavailable."
+    },
+    "PURPLE": {
+      "phon": "/purple/",
+      "def": "Definition currently unavailable."
+    },
+    "GARLIC": {
+      "phon": "/garlic/",
+      "def": "Definition currently unavailable."
+    },
+    "MELON": {
+      "phon": "/melon/",
+      "def": "Definition currently unavailable."
+    },
+    "BROWN": {
+      "phon": "/brown/",
+      "def": "Definition currently unavailable."
+    },
+    "PUMPKIN": {
+      "phon": "/pumpkin/",
+      "def": "Definition currently unavailable."
+    }
   }
 }
