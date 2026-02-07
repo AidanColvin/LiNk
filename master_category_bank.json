@@ -1,0 +1,188 @@
+{
+  "batches": {
+    "batch_01": [
+      {
+        "id": 100,
+        "name": "CALENDAR",
+        "words": [
+          "DATE",
+          "MONTH",
+          "YEAR",
+          "WEEK"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 101,
+        "name": "WRITING",
+        "words": [
+          "PEN",
+          "PENCIL",
+          "MARKER",
+          "CRAYON"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 102,
+        "name": "BUSINESS",
+        "words": [
+          "SALES",
+          "LEGAL",
+          "ADMIN",
+          "SECTOR"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 103,
+        "name": "COLORS",
+        "words": [
+          "LIME",
+          "ORANGE",
+          "ROSE",
+          "SILVER"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_02": [
+      {
+        "id": 200,
+        "name": "WIZARD",
+        "words": [
+          "WIZ",
+          "MAGE",
+          "WITCH",
+          "SORCERER"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 201,
+        "name": "SMART PEOPLE",
+        "words": [
+          "SMARTIES",
+          "GENIUS",
+          "BRAIN",
+          "WIZ"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 202,
+        "name": "CANDY",
+        "words": [
+          "MARS",
+          "TWIX",
+          "SNICKERS",
+          "SMARTIES"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 203,
+        "name": "FABRIC",
+        "words": [
+          "FOLD",
+          "CREASE",
+          "BEND",
+          "PLEAT"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_03": [
+      {
+        "id": 300,
+        "name": "FRUIT",
+        "words": [
+          "APPLE",
+          "DATE",
+          "LIME",
+          "KIWI"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 301,
+        "name": "TREE PARTS",
+        "words": [
+          "BARK",
+          "LEAF",
+          "ROOT",
+          "BRANCH"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 302,
+        "name": "KEYBOARD",
+        "words": [
+          "SHIFT",
+          "ENTER",
+          "CONTROL",
+          "ESCAPE"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 303,
+        "name": "PLANETS",
+        "words": [
+          "MARS",
+          "VENUS",
+          "EARTH",
+          "SATURN"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_04": [
+      {
+        "id": 400,
+        "name": "GARDENING",
+        "words": [
+          "SOW",
+          "SEED",
+          "BLOOM",
+          "GARDEN"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 401,
+        "name": "OFFICE",
+        "words": [
+          "STAPLE",
+          "CLIP",
+          "FOLDER",
+          "BINDER"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 402,
+        "name": "METALS",
+        "words": [
+          "SILVER",
+          "GOLD",
+          "IRON",
+          "TIN"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 403,
+        "name": "DOG SOUNDS",
+        "words": [
+          "BARK",
+          "WOOF",
+          "YELP",
+          "HOWL"
+        ],
+        "color": "Expert"
+      }
+    ]
+  }
+}

@@ -3,6 +3,52 @@
     "batch_01": [
       {
         "id": 100,
+        "name": "COLORS",
+        "words": [
+          "LIME",
+          "ORANGE",
+          "ROSE",
+          "SILVER"
+        ],
+        "color": "Seed"
+      },
+      {
+        "id": 101,
+        "name": "BUSINESS",
+        "words": [
+          "SALES",
+          "LEGAL",
+          "ADMIN",
+          "SECTOR"
+        ],
+        "color": "Red Herring"
+      },
+      {
+        "id": 102,
+        "name": "KEYBOARD",
+        "words": [
+          "SHIFT",
+          "ENTER",
+          "CONTROL",
+          "ESCAPE"
+        ],
+        "color": "Tricky"
+      },
+      {
+        "id": 103,
+        "name": "CALENDAR",
+        "words": [
+          "DATE",
+          "MONTH",
+          "YEAR",
+          "WEEK"
+        ],
+        "color": "Expert"
+      }
+    ],
+    "batch_02": [
+      {
+        "id": 200,
         "name": "GARDENING",
         "words": [
           "SOW",
@@ -13,29 +59,29 @@
         "color": "Seed"
       },
       {
-        "id": 101,
-        "name": "WRITING",
+        "id": 201,
+        "name": "FRUIT",
         "words": [
-          "PEN",
-          "PENCIL",
-          "MARKER",
-          "CRAYON"
+          "APPLE",
+          "DATE",
+          "LIME",
+          "KIWI"
         ],
         "color": "Red Herring"
       },
       {
-        "id": 102,
-        "name": "CALENDAR",
+        "id": 202,
+        "name": "FABRIC",
         "words": [
-          "DATE",
-          "MONTH",
-          "YEAR",
-          "WEEK"
+          "FOLD",
+          "CREASE",
+          "BEND",
+          "PLEAT"
         ],
         "color": "Tricky"
       },
       {
-        "id": 103,
+        "id": 203,
         "name": "TREE PARTS",
         "words": [
           "BARK",
@@ -46,72 +92,26 @@
         "color": "Expert"
       }
     ],
-    "batch_02": [
+    "batch_03": [
       {
-        "id": 200,
-        "name": "BUSINESS",
+        "id": 300,
+        "name": "WRITING",
         "words": [
-          "SALES",
-          "LEGAL",
-          "ADMIN",
-          "SECTOR"
+          "PEN",
+          "PENCIL",
+          "MARKER",
+          "CRAYON"
         ],
         "color": "Seed"
       },
       {
-        "id": 201,
-        "name": "FABRIC",
-        "words": [
-          "FOLD",
-          "CREASE",
-          "BEND",
-          "PLEAT"
-        ],
-        "color": "Red Herring"
-      },
-      {
-        "id": 202,
-        "name": "METALS",
-        "words": [
-          "SILVER",
-          "GOLD",
-          "IRON",
-          "TIN"
-        ],
-        "color": "Tricky"
-      },
-      {
-        "id": 203,
+        "id": 301,
         "name": "DOG SOUNDS",
         "words": [
           "BARK",
           "WOOF",
           "YELP",
           "HOWL"
-        ],
-        "color": "Expert"
-      }
-    ],
-    "batch_03": [
-      {
-        "id": 300,
-        "name": "KEYBOARD",
-        "words": [
-          "SHIFT",
-          "ENTER",
-          "CONTROL",
-          "ESCAPE"
-        ],
-        "color": "Seed"
-      },
-      {
-        "id": 301,
-        "name": "COLORS",
-        "words": [
-          "LIME",
-          "ORANGE",
-          "ROSE",
-          "SILVER"
         ],
         "color": "Red Herring"
       },
@@ -128,12 +128,12 @@
       },
       {
         "id": 303,
-        "name": "FRUIT",
+        "name": "METALS",
         "words": [
-          "APPLE",
-          "DATE",
-          "LIME",
-          "KIWI"
+          "SILVER",
+          "GOLD",
+          "IRON",
+          "TIN"
         ],
         "color": "Expert"
       }
