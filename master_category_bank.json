@@ -102,7 +102,7 @@
     ],
     "batch_03": [
       {
-        "id": 9,
+        "id": 21,
         "name": "COLORS SET 1",
         "difficulty": "Seed",
         "color": "#90EE90",
@@ -114,7 +114,7 @@
         ]
       },
       {
-        "id": 10,
+        "id": 22,
         "name": "COLORS SET 2",
         "difficulty": "Red Herring",
         "color": "#ADD8E6",
@@ -126,27 +126,277 @@
         ]
       },
       {
-        "id": 11,
-        "name": "COLORS SET 3",
+        "id": 31,
+        "name": "WILD ANIMALS SET 1",
         "difficulty": "Tricky",
         "color": "#FFFFE0",
         "words": [
-          "BLACK",
-          "WHITE",
-          "GRAY",
-          "VIOLET"
+          "LION",
+          "TIGER",
+          "BEAR",
+          "WOLF"
         ]
       },
       {
-        "id": 12,
-        "name": "COLORS SET 4",
+        "id": 32,
+        "name": "WILD ANIMALS SET 2",
         "difficulty": "Expert",
         "color": "#FFB6C1",
         "words": [
-          "INDIGO",
-          "CYAN",
-          "MAGENTA",
-          "TEAL"
+          "FOX",
+          "DEER",
+          "ELK",
+          "MOOSE"
+        ]
+      }
+    ],
+    "batch_04": [
+      {
+        "id": 41,
+        "name": "FARM ANIMALS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "COW",
+          "PIG",
+          "SHEEP",
+          "GOAT"
+        ]
+      },
+      {
+        "id": 61,
+        "name": "FISH SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SALMON",
+          "TROUT",
+          "TUNA",
+          "COD"
+        ]
+      },
+      {
+        "id": 71,
+        "name": "INSECTS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "ANT",
+          "BEE",
+          "BEETLE",
+          "BUTTERFLY"
+        ]
+      },
+      {
+        "id": 81,
+        "name": "TREES SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "OAK",
+          "MAPLE",
+          "PINE",
+          "CEDAR"
+        ]
+      }
+    ],
+    "batch_05": [
+      {
+        "id": 91,
+        "name": "FLOWERS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "ROSE",
+          "TULIP",
+          "LILY",
+          "DAISY"
+        ]
+      },
+      {
+        "id": 101,
+        "name": "HERBS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "BASIL",
+          "THYME",
+          "SAGE",
+          "MINT"
+        ]
+      },
+      {
+        "id": 111,
+        "name": "SPICES SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "PEPPER",
+          "CUMIN",
+          "PAPRIKA",
+          "CINNAMON"
+        ]
+      },
+      {
+        "id": 121,
+        "name": "DESSERTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "CAKE",
+          "PIE",
+          "COOKIE",
+          "BROWNIE"
+        ]
+      }
+    ],
+    "batch_06": [
+      {
+        "id": 131,
+        "name": "DRINKS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "WATER",
+          "JUICE",
+          "SODA",
+          "TEA"
+        ]
+      },
+      {
+        "id": 141,
+        "name": "SPORTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SOCCER",
+          "TENNIS",
+          "BASEBALL",
+          "FOOTBALL"
+        ]
+      },
+      {
+        "id": 151,
+        "name": "INSTRUMENTS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "PIANO",
+          "GUITAR",
+          "VIOLIN",
+          "CELLO"
+        ]
+      },
+      {
+        "id": 161,
+        "name": "VEHICLES SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "CAR",
+          "TRUCK",
+          "BUS",
+          "VAN"
+        ]
+      }
+    ],
+    "batch_07": [
+      {
+        "id": 171,
+        "name": "TOOLS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "HAMMER",
+          "SAW",
+          "DRILL",
+          "WRENCH"
+        ]
+      },
+      {
+        "id": 181,
+        "name": "KITCHEN ITEMS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "PAN",
+          "POT",
+          "BOWL",
+          "PLATE"
+        ]
+      },
+      {
+        "id": 191,
+        "name": "FURNITURE SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "CHAIR",
+          "TABLE",
+          "SOFA",
+          "COUCH"
+        ]
+      },
+      {
+        "id": 201,
+        "name": "CLOTHING SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SHIRT",
+          "PANTS",
+          "DRESS",
+          "SKIRT"
+        ]
+      }
+    ],
+    "batch_08": [
+      {
+        "id": 211,
+        "name": "SHOES SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "BOOT",
+          "SNEAKER",
+          "SANDAL",
+          "LOAFER"
+        ]
+      },
+      {
+        "id": 221,
+        "name": "WEATHER SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "RAIN",
+          "SNOW",
+          "SLEET",
+          "HAIL"
+        ]
+      },
+      {
+        "id": 231,
+        "name": "GEOGRAPHY SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "RIVER",
+          "LAKE",
+          "OCEAN",
+          "SEA"
+        ]
+      },
+      {
+        "id": 241,
+        "name": "BODY PARTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "HEAD",
+          "HAIR",
+          "EAR",
+          "EYE"
         ]
       }
     ]
@@ -170,19 +420,19 @@
     },
     "LEMON": {
       "phon": "/\u02c8lem.\u0259n/",
-      "def": "A yellow, oval citrus fruit with thick skin."
+      "def": "A yellow, oval citrus fruit."
     },
     "LIME": {
       "phon": "/la\u026am/",
-      "def": "A green, oval citrus fruit with acidic juice."
+      "def": "A green, oval citrus fruit."
     },
     "MANGO": {
       "phon": "/\u02c8m\u00e6\u014b.\u0261\u0259\u028a/",
-      "def": "An oval tropical fruit with yellow-red skin."
+      "def": "An oval tropical fruit."
     },
     "PEACH": {
       "phon": "/pi\u02d0t\u0283/",
-      "def": "A round fruit with juicy yellow flesh and downy skin."
+      "def": "A round fruit with juicy yellow flesh."
     },
     "CARROT": {
       "phon": "/\u02c8k\u00e6r.\u0259t/",
@@ -190,155 +440,471 @@
     },
     "POTATO": {
       "phon": "/p\u0259\u02c8te\u026a.t\u0259\u028a/",
-      "def": "A starchy plant tuber that is cooked and eaten."
+      "def": "A starchy plant tuber."
     },
     "TOMATO": {
       "phon": "/t\u0259\u02c8m\u0251\u02d0.t\u0259\u028a/",
-      "def": "A glossy red, pulpy edible fruit eaten as a vegetable."
+      "def": "A red edible fruit eaten as a vegetable."
     },
     "ONION": {
       "phon": "/\u02c8\u028cn.j\u0259n/",
-      "def": "A vegetable with a strong smell and flavor."
-    },
-    "BROCCOLI": {
-      "phon": "/broccoli/",
-      "def": "Definition currently unavailable."
-    },
-    "BLUE": {
-      "phon": "/blue/",
-      "def": "Definition currently unavailable."
-    },
-    "BERRY": {
-      "phon": "/berry/",
-      "def": "Definition currently unavailable."
-    },
-    "CELERY": {
-      "phon": "/celery/",
-      "def": "Definition currently unavailable."
-    },
-    "SPINACH": {
-      "phon": "/spinach/",
-      "def": "Definition currently unavailable."
-    },
-    "VIOLET": {
-      "phon": "/violet/",
-      "def": "Definition currently unavailable."
-    },
-    "PEPPER": {
-      "phon": "/pepper/",
-      "def": "Definition currently unavailable."
-    },
-    "TEAL": {
-      "phon": "/teal/",
-      "def": "Definition currently unavailable."
-    },
-    "GREEN": {
-      "phon": "/green/",
-      "def": "Definition currently unavailable."
-    },
-    "RED": {
-      "phon": "/red/",
-      "def": "Definition currently unavailable."
-    },
-    "WHITE": {
-      "phon": "/white/",
-      "def": "Definition currently unavailable."
-    },
-    "BEET": {
-      "phon": "/beet/",
-      "def": "Definition currently unavailable."
-    },
-    "PINK": {
-      "phon": "/pink/",
-      "def": "Definition currently unavailable."
-    },
-    "LETTUCE": {
-      "phon": "/lettuce/",
-      "def": "Definition currently unavailable."
-    },
-    "KIWI": {
-      "phon": "/kiwi/",
-      "def": "Definition currently unavailable."
-    },
-    "INDIGO": {
-      "phon": "/indigo/",
-      "def": "Definition currently unavailable."
-    },
-    "MAGENTA": {
-      "phon": "/magenta/",
-      "def": "Definition currently unavailable."
-    },
-    "GRAY": {
-      "phon": "/gray/",
-      "def": "Definition currently unavailable."
-    },
-    "FIG": {
-      "phon": "/fig/",
-      "def": "Definition currently unavailable."
-    },
-    "PLUM": {
-      "phon": "/plum/",
-      "def": "Definition currently unavailable."
-    },
-    "SQUASH": {
-      "phon": "/squash/",
-      "def": "Definition currently unavailable."
-    },
-    "YELLOW": {
-      "phon": "/yellow/",
-      "def": "Definition currently unavailable."
-    },
-    "BLACK": {
-      "phon": "/black/",
-      "def": "Definition currently unavailable."
-    },
-    "CYAN": {
-      "phon": "/cyan/",
-      "def": "Definition currently unavailable."
-    },
-    "PAPAYA": {
-      "phon": "/papaya/",
-      "def": "Definition currently unavailable."
-    },
-    "RADISH": {
-      "phon": "/radish/",
-      "def": "Definition currently unavailable."
-    },
-    "TURNIP": {
-      "phon": "/turnip/",
-      "def": "Definition currently unavailable."
-    },
-    "ORANGE": {
-      "phon": "/orange/",
-      "def": "Definition currently unavailable."
-    },
-    "CABBAGE": {
-      "phon": "/cabbage/",
-      "def": "Definition currently unavailable."
+      "def": "A vegetable with a strong smell."
     },
     "PEAR": {
       "phon": "/pear/",
-      "def": "Definition currently unavailable."
+      "def": "A type of fruits."
     },
-    "PURPLE": {
-      "phon": "/purple/",
-      "def": "Definition currently unavailable."
+    "PLUM": {
+      "phon": "/plum/",
+      "def": "A type of fruits."
     },
-    "GARLIC": {
-      "phon": "/garlic/",
-      "def": "Definition currently unavailable."
+    "KIWI": {
+      "phon": "/kiwi/",
+      "def": "A type of fruits."
     },
     "MELON": {
       "phon": "/melon/",
-      "def": "Definition currently unavailable."
+      "def": "A type of fruits."
     },
-    "BROWN": {
-      "phon": "/brown/",
-      "def": "Definition currently unavailable."
+    "ORANGE": {
+      "phon": "/orange/",
+      "def": "A type of fruits."
+    },
+    "PAPAYA": {
+      "phon": "/papaya/",
+      "def": "A type of fruits."
+    },
+    "BERRY": {
+      "phon": "/berry/",
+      "def": "A type of fruits."
+    },
+    "FIG": {
+      "phon": "/fig/",
+      "def": "A type of fruits."
+    },
+    "GARLIC": {
+      "phon": "/garlic/",
+      "def": "A type of vegetables."
+    },
+    "CELERY": {
+      "phon": "/celery/",
+      "def": "A type of vegetables."
+    },
+    "PEPPER": {
+      "phon": "/pepper/",
+      "def": "A type of vegetables."
+    },
+    "LETTUCE": {
+      "phon": "/lettuce/",
+      "def": "A type of vegetables."
+    },
+    "SPINACH": {
+      "phon": "/spinach/",
+      "def": "A type of vegetables."
+    },
+    "BROCCOLI": {
+      "phon": "/broccoli/",
+      "def": "A type of vegetables."
+    },
+    "CABBAGE": {
+      "phon": "/cabbage/",
+      "def": "A type of vegetables."
+    },
+    "RADISH": {
+      "phon": "/radish/",
+      "def": "A type of vegetables."
+    },
+    "BEET": {
+      "phon": "/beet/",
+      "def": "A type of vegetables."
+    },
+    "TURNIP": {
+      "phon": "/turnip/",
+      "def": "A type of vegetables."
+    },
+    "SQUASH": {
+      "phon": "/squash/",
+      "def": "A type of vegetables."
     },
     "PUMPKIN": {
       "phon": "/pumpkin/",
-      "def": "Definition currently unavailable."
+      "def": "A type of vegetables."
+    },
+    "RED": {
+      "phon": "/red/",
+      "def": "A type of colors."
+    },
+    "BLUE": {
+      "phon": "/blue/",
+      "def": "A type of colors."
+    },
+    "GREEN": {
+      "phon": "/green/",
+      "def": "A type of colors."
+    },
+    "YELLOW": {
+      "phon": "/yellow/",
+      "def": "A type of colors."
+    },
+    "PURPLE": {
+      "phon": "/purple/",
+      "def": "A type of colors."
+    },
+    "PINK": {
+      "phon": "/pink/",
+      "def": "A type of colors."
+    },
+    "BROWN": {
+      "phon": "/brown/",
+      "def": "A type of colors."
+    },
+    "LION": {
+      "phon": "/lion/",
+      "def": "A type of wild."
+    },
+    "TIGER": {
+      "phon": "/tiger/",
+      "def": "A type of wild."
+    },
+    "BEAR": {
+      "phon": "/bear/",
+      "def": "A type of wild."
+    },
+    "WOLF": {
+      "phon": "/wolf/",
+      "def": "A type of wild."
+    },
+    "FOX": {
+      "phon": "/fox/",
+      "def": "A type of wild."
+    },
+    "DEER": {
+      "phon": "/deer/",
+      "def": "A type of wild."
+    },
+    "ELK": {
+      "phon": "/elk/",
+      "def": "A type of wild."
+    },
+    "MOOSE": {
+      "phon": "/moose/",
+      "def": "A type of wild."
+    },
+    "COW": {
+      "phon": "/cow/",
+      "def": "A type of farm."
+    },
+    "PIG": {
+      "phon": "/pig/",
+      "def": "A type of farm."
+    },
+    "SHEEP": {
+      "phon": "/sheep/",
+      "def": "A type of farm."
+    },
+    "GOAT": {
+      "phon": "/goat/",
+      "def": "A type of farm."
+    },
+    "SALMON": {
+      "phon": "/salmon/",
+      "def": "A type of fish."
+    },
+    "TROUT": {
+      "phon": "/trout/",
+      "def": "A type of fish."
+    },
+    "TUNA": {
+      "phon": "/tuna/",
+      "def": "A type of fish."
+    },
+    "COD": {
+      "phon": "/cod/",
+      "def": "A type of fish."
+    },
+    "ANT": {
+      "phon": "/ant/",
+      "def": "A type of insects."
+    },
+    "BEE": {
+      "phon": "/bee/",
+      "def": "A type of insects."
+    },
+    "BEETLE": {
+      "phon": "/beetle/",
+      "def": "A type of insects."
+    },
+    "BUTTERFLY": {
+      "phon": "/butterfly/",
+      "def": "A type of insects."
+    },
+    "OAK": {
+      "phon": "/oak/",
+      "def": "A type of trees."
+    },
+    "MAPLE": {
+      "phon": "/maple/",
+      "def": "A type of trees."
+    },
+    "PINE": {
+      "phon": "/pine/",
+      "def": "A type of trees."
+    },
+    "CEDAR": {
+      "phon": "/cedar/",
+      "def": "A type of trees."
+    },
+    "ROSE": {
+      "phon": "/rose/",
+      "def": "A type of flowers."
+    },
+    "TULIP": {
+      "phon": "/tulip/",
+      "def": "A type of flowers."
+    },
+    "LILY": {
+      "phon": "/lily/",
+      "def": "A type of flowers."
+    },
+    "DAISY": {
+      "phon": "/daisy/",
+      "def": "A type of flowers."
+    },
+    "BASIL": {
+      "phon": "/basil/",
+      "def": "A type of herbs."
+    },
+    "THYME": {
+      "phon": "/thyme/",
+      "def": "A type of herbs."
+    },
+    "SAGE": {
+      "phon": "/sage/",
+      "def": "A type of herbs."
+    },
+    "MINT": {
+      "phon": "/mint/",
+      "def": "A type of herbs."
+    },
+    "CUMIN": {
+      "phon": "/cumin/",
+      "def": "A type of spices."
+    },
+    "PAPRIKA": {
+      "phon": "/paprika/",
+      "def": "A type of spices."
+    },
+    "CINNAMON": {
+      "phon": "/cinnamon/",
+      "def": "A type of spices."
+    },
+    "CAKE": {
+      "phon": "/cake/",
+      "def": "A type of desserts."
+    },
+    "PIE": {
+      "phon": "/pie/",
+      "def": "A type of desserts."
+    },
+    "COOKIE": {
+      "phon": "/cookie/",
+      "def": "A type of desserts."
+    },
+    "BROWNIE": {
+      "phon": "/brownie/",
+      "def": "A type of desserts."
+    },
+    "WATER": {
+      "phon": "/water/",
+      "def": "A type of drinks."
+    },
+    "JUICE": {
+      "phon": "/juice/",
+      "def": "A type of drinks."
+    },
+    "SODA": {
+      "phon": "/soda/",
+      "def": "A type of drinks."
+    },
+    "TEA": {
+      "phon": "/tea/",
+      "def": "A type of drinks."
+    },
+    "SOCCER": {
+      "phon": "/soccer/",
+      "def": "A type of sports."
+    },
+    "TENNIS": {
+      "phon": "/tennis/",
+      "def": "A type of sports."
+    },
+    "BASEBALL": {
+      "phon": "/baseball/",
+      "def": "A type of sports."
+    },
+    "FOOTBALL": {
+      "phon": "/football/",
+      "def": "A type of sports."
+    },
+    "PIANO": {
+      "phon": "/piano/",
+      "def": "A type of instruments."
+    },
+    "GUITAR": {
+      "phon": "/guitar/",
+      "def": "A type of instruments."
+    },
+    "VIOLIN": {
+      "phon": "/violin/",
+      "def": "A type of instruments."
+    },
+    "CELLO": {
+      "phon": "/cello/",
+      "def": "A type of instruments."
+    },
+    "CAR": {
+      "phon": "/car/",
+      "def": "A type of vehicles."
+    },
+    "TRUCK": {
+      "phon": "/truck/",
+      "def": "A type of vehicles."
+    },
+    "BUS": {
+      "phon": "/bus/",
+      "def": "A type of vehicles."
+    },
+    "VAN": {
+      "phon": "/van/",
+      "def": "A type of vehicles."
+    },
+    "HAMMER": {
+      "phon": "/hammer/",
+      "def": "A type of tools."
+    },
+    "SAW": {
+      "phon": "/saw/",
+      "def": "A type of tools."
+    },
+    "DRILL": {
+      "phon": "/drill/",
+      "def": "A type of tools."
+    },
+    "WRENCH": {
+      "phon": "/wrench/",
+      "def": "A type of tools."
+    },
+    "PAN": {
+      "phon": "/pan/",
+      "def": "A type of kitchen."
+    },
+    "POT": {
+      "phon": "/pot/",
+      "def": "A type of kitchen."
+    },
+    "BOWL": {
+      "phon": "/bowl/",
+      "def": "A type of kitchen."
+    },
+    "PLATE": {
+      "phon": "/plate/",
+      "def": "A type of kitchen."
+    },
+    "CHAIR": {
+      "phon": "/chair/",
+      "def": "A type of furniture."
+    },
+    "TABLE": {
+      "phon": "/table/",
+      "def": "A type of furniture."
+    },
+    "SOFA": {
+      "phon": "/sofa/",
+      "def": "A type of furniture."
+    },
+    "COUCH": {
+      "phon": "/couch/",
+      "def": "A type of furniture."
+    },
+    "SHIRT": {
+      "phon": "/shirt/",
+      "def": "A type of clothing."
+    },
+    "PANTS": {
+      "phon": "/pants/",
+      "def": "A type of clothing."
+    },
+    "DRESS": {
+      "phon": "/dress/",
+      "def": "A type of clothing."
+    },
+    "SKIRT": {
+      "phon": "/skirt/",
+      "def": "A type of clothing."
+    },
+    "BOOT": {
+      "phon": "/boot/",
+      "def": "A type of shoes."
+    },
+    "SNEAKER": {
+      "phon": "/sneaker/",
+      "def": "A type of shoes."
+    },
+    "SANDAL": {
+      "phon": "/sandal/",
+      "def": "A type of shoes."
+    },
+    "LOAFER": {
+      "phon": "/loafer/",
+      "def": "A type of shoes."
+    },
+    "RAIN": {
+      "phon": "/rain/",
+      "def": "A type of weather."
+    },
+    "SNOW": {
+      "phon": "/snow/",
+      "def": "A type of weather."
+    },
+    "SLEET": {
+      "phon": "/sleet/",
+      "def": "A type of weather."
+    },
+    "HAIL": {
+      "phon": "/hail/",
+      "def": "A type of weather."
+    },
+    "RIVER": {
+      "phon": "/river/",
+      "def": "A type of geography."
+    },
+    "LAKE": {
+      "phon": "/lake/",
+      "def": "A type of geography."
+    },
+    "OCEAN": {
+      "phon": "/ocean/",
+      "def": "A type of geography."
+    },
+    "SEA": {
+      "phon": "/sea/",
+      "def": "A type of geography."
+    },
+    "HEAD": {
+      "phon": "/head/",
+      "def": "A type of body."
+    },
+    "HAIR": {
+      "phon": "/hair/",
+      "def": "A type of body."
+    },
+    "EAR": {
+      "phon": "/ear/",
+      "def": "A type of body."
+    },
+    "EYE": {
+      "phon": "/eye/",
+      "def": "A type of body."
     }
   }
 }
