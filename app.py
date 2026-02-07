@@ -14,5 +14,4 @@ def get_categories():
     return jsonify({"error": "File not found"}), 404
 
 if __name__ == '__main__':
-    print("Game running on http://localhost:5000")
     app.run(host='0.0.0.0', port=5000)

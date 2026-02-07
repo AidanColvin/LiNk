@@ -13,7 +13,6 @@
         .logo-icon { font-size: 2.5rem; color: #C4A484; }
         
         .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--border-width); padding: var(--border-width); background-color: var(--grid-line); border: var(--border-width) solid var(--grid-line); border-radius: 35px; margin-bottom: 20px; box-sizing: border-box; min-height: 350px; position: relative; }
-        
         .loading-msg { position: absolute; width: 100%; text-align: center; top: 45%; color: white; font-weight: bold; }
 
         .word-card { aspect-ratio: 1/1; background: var(--card-base); border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; text-transform: uppercase; cursor: pointer; user-select: none; text-align: center; padding: 5px; font-size: 0.8rem; transition: background 0.15s ease; }
@@ -42,13 +41,11 @@
         <div id="grid" class="grid">
             <div class="loading-msg">Loading...</div>
         </div>
-        
         <div class="controls">
             <button id="shuffle-btn">Shuffle</button>
             <button id="submit-btn" disabled>Submit</button>
             <button id="new-game-btn">New Game</button>
         </div>
-
         <div class="attempts-section">
             <span>Attempts:</span>
             <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
@@ -64,7 +61,6 @@
 
         async function initGame() {
             try {
-                // FIXED: Direct link to the file we just created
                 const response = await fetch('master_category_bank.json');
                 if (!response.ok) throw new Error("File not found");
                 const data = await response.json();
@@ -90,13 +86,10 @@
             solvedCategories.forEach(cat => {
                 const row = document.createElement('div');
                 row.className = 'solved-row';
-                
-                // Map color names to hex if needed, or use direct
-                let bg = '#90EE90'; // Default Seed
+                let bg = '#90EE90';
                 if(cat.color === 'Red Herring') bg = '#ADD8E6';
                 if(cat.color === 'Tricky') bg = '#FFFFE0';
                 if(cat.color === 'Expert') bg = '#FFB6C1';
-                
                 row.style.backgroundColor = bg;
                 row.innerHTML = `<div>${cat.name}</div><div style="font-weight:normal; font-size:0.8rem">${cat.words.join(', ')}</div>`;
                 gridEl.appendChild(row);
