@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATEGORIES</title>
+    <title>Link</title>
     <style>
         :root {
             --bg: #FFFAF0; 
@@ -11,6 +11,11 @@
             --card-selected: #FFE4C4; 
             --grid-line: #000;
             --border-width: 4px; 
+            /* Difficulty Colors */
+            --seed: #90EE90;
+            --red-herring: #ADD8E6;
+            --tricky: #FFFFE0;
+            --expert: #FFB6C1;
         }
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
@@ -21,196 +26,218 @@
         
         #game-container { width: 100%; max-width: 620px; }
         
-        h1 { 
-            text-align: center;
-            margin: 0 0 15px 0; 
-            font-size: 2.8rem; 
-            font-weight: 300; 
-            text-transform: uppercase; 
-            letter-spacing: 6px;
+        /* RESTORED: LiNk Title and Circle Logo */
+        .header-container {
+            display: flex; align-items: center; justify-content: center;
+            gap: 15px; margin-bottom: 20px;
         }
+        h1 { 
+            margin: 0; font-size: 3rem; font-weight: 700; color: #1a1a1a; 
+            text-transform: lowercase; letter-spacing: 1px;
+        }
+        .logo-icon { font-size: 2.5rem; color: #C4A484; }
 
         .grid { 
             display: grid; grid-template-columns: repeat(4, 1fr); 
-            gap: var(--border-width); 
-            padding: var(--border-width); 
+            gap: var(--border-width); padding: var(--border-width); 
             background-color: var(--grid-line); 
             border: var(--border-width) solid var(--grid-line); 
-            border-radius: 35px;
-            margin-bottom: 20px;
+            border-radius: 35px; margin-bottom: 20px;
             box-sizing: border-box;
+            min-height: 350px; /* Prevents collapse */
         }
 
         .word-card { 
-            aspect-ratio: 1/1; 
-            background: var(--card-base); 
-            border-radius: 25px;
-            display: flex; flex-direction: column;
+            aspect-ratio: 1/1; background: var(--card-base); 
+            border-radius: 25px; display: flex; flex-direction: column;
             align-items: center; justify-content: center;
             font-weight: 800; text-transform: uppercase; 
             cursor: pointer; user-select: none; text-align: center; 
-            padding: 10px;
+            padding: 5px; font-size: 0.9rem;
             transition: background 0.15s ease;
         }
+        @media(min-width: 500px) { .word-card { font-size: 1rem; padding: 10px; } }
         
-        .word-text { font-size: 1.3rem; color: #000; letter-spacing: 0.5px; }
+        .word-card.selected { background: var(--card-selected); }
         
         .def-container { 
-            font-size: 0.65rem; text-transform: none; font-weight: 500; 
-            margin-top: 5px; color: #222; line-height: 1.1;
-            display: none; 
+            display: none; font-size: 0.7em; margin-top: 5px; 
+            font-weight: normal; text-transform: none; line-height: 1.1;
         }
 
-        .word-card.selected { background: var(--card-selected); }
-
         .controls { 
-            display: flex; 
-            gap: 20px; 
-            justify-content: center; 
-            margin-bottom: 12px; 
-            width: 100%;
-            padding: 0 30px; 
-            box-sizing: border-box;
+            display: flex; gap: 10px; justify-content: center; 
+            margin-bottom: 12px; width: 100%; padding: 0 10px; box-sizing: border-box;
         }
         
         button { 
-            flex: 1; 
-            padding: 14px 0; 
-            border-radius: 50px; 
-            border: var(--border-width) solid #000; 
-            background: transparent; 
-            font-weight: normal;
-            cursor: pointer; 
-            font-size: 1.2rem; 
-            color: #000;
+            flex: 1; padding: 12px 0; border-radius: 50px; 
+            border: 3px solid #000; background: transparent; 
+            font-weight: 700; cursor: pointer; font-size: 1rem; color: #000;
         }
-        button:hover { background: rgba(0,0,0,0.05); } 
-        button:disabled { opacity: 0.3; cursor: not-allowed; }
+        button:hover { background: rgba(0,0,0,0.05); }
+        button:disabled { opacity: 0.3; cursor: not-allowed; border-color: #999; color: #999; }
         
+        #submit-btn { background-color: #f0f0f0; border-color: #ccc; color: #999; }
+        #submit-btn.active { background-color: #000; color: #fff; border-color: #000; }
+
         .attempts-section { 
             display: flex; align-items: center; justify-content: flex-end; gap: 10px;
-            font-weight: 400; font-size: 1.1rem; 
-            width: 100%;
-            padding-right: 5px; 
+            font-weight: 600; font-size: 1.1rem; width: 100%; padding-right: 15px; 
         }
-        .circles-container { display: flex; gap: 8px; }
         .circle { 
-            width: 16px; height: 16px; 
-            background: #B09B8C; 
-            border-radius: 50%; transition: opacity 0.3s;
+            width: 18px; height: 18px; background: #C4A484; 
+            border: 2px solid #000; border-radius: 50%;
         }
-        .circle.spent { opacity: 0; }
+        .circle.spent { background: transparent; }
 
         .solved-row { 
-            grid-column: span 4; height: 85px; border-radius: 25px;
+            grid-column: span 4; height: 80px; border-radius: 20px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            margin-bottom: 10px; font-weight: 800; text-transform: uppercase;
+            font-weight: 800; text-transform: uppercase; margin-bottom: 5px; text-align: center;
         }
-
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
-        .shake { animation: shake 0.2s ease-in-out 0s 2; }
     </style>
 </head>
 <body>
 
-    <h1>CATEGORIES</h1>
+    <div class="header-container">
+        <h1>link</h1>
+        <div class="logo-icon">꩜</div> 
+    </div>
     
     <div id="game-container">
-        <div id="solved-container"></div>
         <div id="grid" class="grid"></div>
         
         <div class="controls">
             <button id="shuffle-btn">Shuffle</button>
             <button id="def-btn">Definitions</button>
             <button id="submit-btn" disabled>Submit</button>
-        </div>
-        
-        <div style="text-align: center; margin-top: 5px;">
-            <button id="new-game-btn" style="border: none; text-decoration: underline; font-size: 1rem; padding: 5px 20px;">New Game</button>
+            <button id="new-game-btn">New Game</button>
         </div>
 
         <div class="attempts-section">
             <span>Attempts:</span>
-            <div id="circles" class="circles-container">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-            </div>
+            <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
         </div>
     </div>
 
     <script>
+        // Restored Dictionary for Definitions Button
         const dictionary = {
-            "BARK": { phon: "bɑːrk", def: "The protective outer covering of a tree trunk." },
-            "LEAF": { phon: "liːf", def: "A flattened structure of a higher plant." },
-            "ROOT": { phon: "ruːt", def: "The part of a plant attaching it to the ground." },
-            "BRANCH": { phon: "bræntʃ", def: "A part of a tree growing out from the trunk." },
-            "SALES": { phon: "seɪlz", def: "The department responsible for selling goods." },
-            "LEGAL": { phon: "ˈliːɡl", def: "Related to or permitted by law." },
-            "ADMIN": { phon: "ˈædmɪn", def: "The management of public or business affairs." },
-            "SECTOR": { phon: "ˈsektər", def: "An area or portion that is distinct from others." }
+            "BARK": { phon: "bɑːrk", def: "Outer covering of a tree." },
+            "LEAF": { phon: "liːf", def: "Green part of a plant." },
+            "ROOT": { phon: "ruːt", def: "Anchor of a plant." },
+            "BRANCH": { phon: "bræntʃ", def: "Limb of a tree." }
+            // Note: Since we have 250 words now, words not in this list will show "No definition available"
         };
 
         let gameData = [];
         let currentWords = [];
         let selectedWords = [];
         let mistakes = 4;
+        let solvedCategories = [];
 
         async function initGame() {
             try {
-                // FIXED BRIDGE: Points to the master bank
+                // FIXED: Loading correct file
                 const response = await fetch('master_category_bank.json');
                 const data = await response.json();
                 
-                // FIXED LOGIC: Handles the 'batches' structure correctly
                 const batchKeys = Object.keys(data.batches);
-                const randomKey = batchKeys[Math.floor(Math.random() * batchKeys.length)];
-                gameData = data.batches[randomKey];
+                const randomBatch = batchKeys[Math.floor(Math.random() * batchKeys.length)];
+                gameData = data.batches[randomBatch];
                 
-                currentWords = gameData.flatMap(cat => cat.words.map(w => ({ text: w, catId: cat.id })));
+                currentWords = gameData.flatMap(cat => 
+                    cat.words.map(w => ({ text: w, catId: cat.id, catName: cat.name, color: cat.color }))
+                );
+                
                 shuffleWords();
-            } catch (e) { 
-                console.error("Error loading JSON", e);
-                // Fallback if file not found
-                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center'>Loading Error. Refresh or check data file.</div>";
+            } catch (error) {
+                console.error(error);
+                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center;'>Loading Error. Check console.</div>";
             }
         }
 
         function renderGrid() {
             const gridEl = document.getElementById('grid');
-            gridEl.innerHTML = '';
-            if (currentWords.length === 0) { gridEl.style.display = 'none'; return; }
+            gridEl.innerHTML = ''; 
 
+            // 1. Draw Solved
+            solvedCategories.forEach(cat => {
+                const row = document.createElement('div');
+                row.className = 'solved-row';
+                
+                // Color Logic
+                let bg = cat.color;
+                // Fallback if color is missing/named
+                if(cat.difficulty === 'Seed') bg = '#90EE90';
+                else if(cat.difficulty === 'Red Herring') bg = '#ADD8E6';
+                else if(cat.difficulty === 'Tricky') bg = '#FFFFE0';
+                else if(cat.difficulty === 'Expert') bg = '#FFB6C1';
+                
+                row.style.backgroundColor = bg || '#90EE90';
+                row.innerHTML = `<div>${cat.name}</div><div style="font-weight:normal; font-size:0.8rem">${cat.words.join(', ')}</div>`;
+                gridEl.appendChild(row);
+            });
+
+            // 2. Draw Cards
             currentWords.forEach(wordObj => {
                 const div = document.createElement('div');
                 div.className = 'word-card';
                 if (selectedWords.find(sw => sw.text === wordObj.text)) div.classList.add('selected');
                 
-                const info = dictionary[wordObj.text] || { phon: "", def: "" };
+                // FIXED: Definitions HTML is included but hidden by default
+                const info = dictionary[wordObj.text] || { phon: "", def: "Definition loading..." };
+                
                 div.innerHTML = `
                     <div class="word-text">${wordObj.text}</div>
                     <div class="def-container" id="def-${wordObj.text}">
-                        <b>${info.phon}</b><br>${info.def}
+                        ${info.def}
                     </div>
                 `;
+                
                 div.onclick = () => toggleSelect(div, wordObj);
                 gridEl.appendChild(div);
             });
         }
 
         function toggleSelect(el, wordObj) {
-            const defDiv = document.getElementById(`def-${wordObj.text}`);
+            if (solvedCategories.some(c => c.id === wordObj.catId)) return;
             if (el.classList.contains('selected')) {
-                el.classList.remove('selected');
                 selectedWords = selectedWords.filter(w => w.text !== wordObj.text);
-                if(defDiv) defDiv.style.display = 'none';
             } else if (selectedWords.length < 4) {
-                el.classList.add('selected');
                 selectedWords.push(wordObj);
             }
-            document.getElementById('submit-btn').disabled = selectedWords.length !== 4;
+            renderGrid();
+            updateButtons();
         }
+
+        function updateButtons() {
+            const submitBtn = document.getElementById('submit-btn');
+            if (selectedWords.length === 4) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('active');
+                submitBtn.style.backgroundColor = '#000';
+                submitBtn.style.color = '#fff';
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('active');
+                submitBtn.style.backgroundColor = '#f0f0f0';
+                submitBtn.style.color = '#999';
+            }
+        }
+
+        // FIXED: Definition Button Logic
+        document.getElementById('def-btn').onclick = () => {
+            // Toggle definition visibility for SELECTED words only
+            selectedWords.forEach(w => {
+                const defEl = document.getElementById(`def-${w.text}`);
+                if (defEl) {
+                    const isHidden = (defEl.style.display === 'none' || defEl.style.display === '');
+                    defEl.style.display = isHidden ? 'block' : 'none';
+                }
+            });
+        };
 
         function shuffleWords() {
             currentWords.sort(() => Math.random() - 0.5);
@@ -220,60 +247,38 @@
         document.getElementById('shuffle-btn').onclick = shuffleWords;
         document.getElementById('new-game-btn').onclick = () => location.reload();
 
-        document.getElementById('def-btn').onclick = () => {
-            selectedWords.forEach(w => {
-                const defDiv = document.getElementById(`def-${w.text}`);
-                if (defDiv) {
-                    const isVisible = defDiv.style.display === 'block';
-                    defDiv.style.display = isVisible ? 'none' : 'block';
-                }
-            });
-        };
-
         document.getElementById('submit-btn').onclick = () => {
+            if (selectedWords.length !== 4) return;
             const firstId = selectedWords[0].catId;
             const isMatch = selectedWords.every(w => w.catId === firstId);
-            if (isMatch) handleCorrect(firstId);
-            else handleWrong();
+
+            if (isMatch) {
+                // Find category object
+                // If it's a batch, find by ID
+                let category = null;
+                // We need to look in the raw data or infer from the word object
+                // Since we flattened it, we can grab properties from the first word
+                category = {
+                    id: selectedWords[0].catId,
+                    name: selectedWords[0].catName,
+                    color: selectedWords[0].color,
+                    words: selectedWords.map(w => w.text)
+                };
+
+                solvedCategories.push(category);
+                currentWords = currentWords.filter(w => w.catId !== firstId);
+                selectedWords = [];
+                renderGrid();
+                updateButtons();
+                if (currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
+            } else {
+                mistakes--;
+                const circles = document.querySelectorAll('.circle');
+                if (circles[mistakes]) circles[mistakes].classList.add('spent');
+                alert("Incorrect!");
+                if (mistakes === 0) setTimeout(() => { alert("Game Over"); location.reload(); }, 500);
+            }
         };
-
-        function handleCorrect(catId) {
-            const category = gameData.find(c => c.id === catId);
-            currentWords = currentWords.filter(w => w.catId !== catId);
-            const row = document.createElement('div');
-            row.className = 'solved-row';
-            
-            // Logic to color rows based on difficulty string OR explicit color code
-            let color = category.color;
-            if (category.difficulty === "Seed") color = "#90EE90";
-            else if (category.difficulty === "Red Herring") color = "#ADD8E6";
-            else if (category.difficulty === "Tricky") color = "#FFFFE0";
-            else if (category.difficulty === "Expert") color = "#FFB6C1";
-
-            row.style.backgroundColor = color;
-            row.innerHTML = `<div>${category.name}</div><div style="font-weight:normal; font-size: 0.9rem">${category.words.join(', ')}</div>`;
-            document.getElementById('solved-container').appendChild(row);
-            
-            selectedWords = [];
-            document.getElementById('submit-btn').disabled = true;
-            renderGrid();
-            
-            if (currentWords.length === 0) {
-                setTimeout(() => { alert("You Win!"); }, 500);
-            }
-        }
-
-        function handleWrong() {
-            mistakes--;
-            const circles = document.querySelectorAll('.circle');
-            if (circles[mistakes]) circles[mistakes].classList.add('spent');
-            const grid = document.getElementById('grid');
-            grid.classList.add('shake');
-            setTimeout(() => grid.classList.remove('shake'), 500);
-            if (mistakes === 0) {
-                setTimeout(() => { alert("Game Over!"); location.reload(); }, 600);
-            }
-        }
 
         initGame();
     </script>
