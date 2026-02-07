@@ -11,15 +11,21 @@
         .header-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
         h1 { margin: 0; font-size: 3rem; font-weight: 700; color: #1a1a1a; text-transform: lowercase; letter-spacing: 1px; }
         .logo-icon { font-size: 2.5rem; color: #C4A484; }
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--border-width); padding: var(--border-width); background-color: var(--grid-line); border: var(--border-width) solid var(--grid-line); border-radius: 35px; margin-bottom: 20px; box-sizing: border-box; min-height: 350px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--border-width); padding: var(--border-width); background-color: var(--grid-line); border: var(--border-width) solid var(--grid-line); border-radius: 35px; margin-bottom: 20px; box-sizing: border-box; min-height: 350px; position: relative; }
+        
+        .loading-msg { position: absolute; width: 100%; text-align: center; top: 45%; color: white; font-weight: bold; }
+
         .word-card { aspect-ratio: 1/1; background: var(--card-base); border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; text-transform: uppercase; cursor: pointer; user-select: none; text-align: center; padding: 5px; font-size: 0.8rem; transition: background 0.15s ease; }
         @media(min-width: 500px) { .word-card { font-size: 1rem; padding: 10px; } }
         .word-card.selected { background: var(--card-selected); }
+        
         .controls { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; width: 100%; padding: 0 10px; box-sizing: border-box; }
         button { flex: 1; padding: 12px 0; border-radius: 50px; border: 3px solid #000; background: transparent; font-weight: 700; cursor: pointer; font-size: 1rem; color: #000; }
         button:hover { background: rgba(0,0,0,0.05); }
         button:disabled { opacity: 0.3; cursor: not-allowed; }
         #submit-btn.active { background-color: #000; color: #fff; }
+        
         .attempts-section { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-weight: 600; font-size: 1.1rem; width: 100%; padding-right: 15px; }
         .circle { width: 18px; height: 18px; background: #C4A484; border: 2px solid #000; border-radius: 50%; }
         .circle.spent { background: transparent; }
@@ -31,18 +37,24 @@
         <h1>link</h1>
         <div class="logo-icon">꩜</div> 
     </div>
+    
     <div id="game-container">
-        <div id="grid" class="grid"></div>
+        <div id="grid" class="grid">
+            <div class="loading-msg">Loading...</div>
+        </div>
+        
         <div class="controls">
             <button id="shuffle-btn">Shuffle</button>
             <button id="submit-btn" disabled>Submit</button>
             <button id="new-game-btn">New Game</button>
         </div>
+
         <div class="attempts-section">
             <span>Attempts:</span>
             <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
         </div>
     </div>
+
     <script>
         let gameData = [];
         let currentWords = [];
@@ -52,35 +64,44 @@
 
         async function initGame() {
             try {
-                // FIXED: Now points correctly to the data folder
-                const response = await fetch('data/master_bank.json');
-                if (!response.ok) throw new Error("Could not find data file");
+                // FIXED: Direct link to the file we just created
+                const response = await fetch('master_category_bank.json');
+                if (!response.ok) throw new Error("File not found");
                 const data = await response.json();
+                
                 const batchKeys = Object.keys(data.batches);
-                if (batchKeys.length === 0) throw new Error("No games found");
-
                 const randomBatch = batchKeys[Math.floor(Math.random() * batchKeys.length)];
                 gameData = data.batches[randomBatch];
                 
-                currentWords = gameData.flatMap(cat => cat.words.map(w => ({ 
-                    text: w, catId: cat.id, catName: cat.name, color: cat.color 
-                })));
+                currentWords = gameData.flatMap(cat => 
+                    cat.words.map(w => ({ text: w, catId: cat.id, catName: cat.name, color: cat.color }))
+                );
+                
                 shuffleWords();
             } catch (error) {
-                document.getElementById('grid').innerHTML = "<div style='grid-column:span 4;text-align:center;padding:20px'>Error loading game.<br>Please run generate_puzzle.py</div>";
+                document.querySelector('.loading-msg').innerText = "Error: " + error.message;
             }
         }
 
         function renderGrid() {
             const gridEl = document.getElementById('grid');
             gridEl.innerHTML = ''; 
+
             solvedCategories.forEach(cat => {
                 const row = document.createElement('div');
                 row.className = 'solved-row';
-                row.style.backgroundColor = cat.color;
+                
+                // Map color names to hex if needed, or use direct
+                let bg = '#90EE90'; // Default Seed
+                if(cat.color === 'Red Herring') bg = '#ADD8E6';
+                if(cat.color === 'Tricky') bg = '#FFFFE0';
+                if(cat.color === 'Expert') bg = '#FFB6C1';
+                
+                row.style.backgroundColor = bg;
                 row.innerHTML = `<div>${cat.name}</div><div style="font-weight:normal; font-size:0.8rem">${cat.words.join(', ')}</div>`;
                 gridEl.appendChild(row);
             });
+
             currentWords.forEach(wordObj => {
                 const div = document.createElement('div');
                 div.className = 'word-card';
@@ -125,6 +146,7 @@
             if (selectedWords.length !== 4) return;
             const firstId = selectedWords[0].catId;
             const isMatch = selectedWords.every(w => w.catId === firstId);
+
             if (isMatch) {
                 const category = gameData.find(c => c.id === firstId);
                 solvedCategories.push(category);
@@ -141,6 +163,7 @@
                 if (mistakes === 0) setTimeout(() => { alert("Game Over"); location.reload(); }, 500);
             }
         };
+
         initGame();
     </script>
 </body>
