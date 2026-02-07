@@ -11,11 +11,6 @@
             --card-selected: #FFE4C4; 
             --grid-line: #000;
             --border-width: 4px; 
-            /* Difficulty Colors */
-            --seed: #90EE90;
-            --red-herring: #ADD8E6;
-            --tricky: #FFFFE0;
-            --expert: #FFB6C1;
         }
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
@@ -26,7 +21,7 @@
         
         #game-container { width: 100%; max-width: 620px; }
         
-        /* RESTORED: LiNk Title and Circle Logo */
+        /* HEADER RESTORATION: "link" title and circle logo */
         .header-container {
             display: flex; align-items: center; justify-content: center;
             gap: 15px; margin-bottom: 20px;
@@ -35,7 +30,10 @@
             margin: 0; font-size: 3rem; font-weight: 700; color: #1a1a1a; 
             text-transform: lowercase; letter-spacing: 1px;
         }
-        .logo-icon { font-size: 2.5rem; color: #C4A484; }
+        .logo-icon { 
+            font-size: 2.5rem; color: #C4A484; 
+            /* This is the unicode equivalent of your 3-circle logo */
+        }
 
         .grid { 
             display: grid; grid-template-columns: repeat(4, 1fr); 
@@ -44,12 +42,15 @@
             border: var(--border-width) solid var(--grid-line); 
             border-radius: 35px; margin-bottom: 20px;
             box-sizing: border-box;
-            min-height: 350px; /* Prevents collapse */
+            min-height: 350px; position: relative;
         }
 
+        /* CARD COLORS RESTORED */
         .word-card { 
-            aspect-ratio: 1/1; background: var(--card-base); 
-            border-radius: 25px; display: flex; flex-direction: column;
+            aspect-ratio: 1/1; 
+            background: var(--card-base); 
+            border-radius: 25px; 
+            display: flex; flex-direction: column;
             align-items: center; justify-content: center;
             font-weight: 800; text-transform: uppercase; 
             cursor: pointer; user-select: none; text-align: center; 
@@ -60,9 +61,12 @@
         
         .word-card.selected { background: var(--card-selected); }
         
+        /* DEFINITION STYLING RESTORED */
+        .word-text { font-size: 1.1rem; color: #000; letter-spacing: 0.5px; }
         .def-container { 
-            display: none; font-size: 0.7em; margin-top: 5px; 
-            font-weight: normal; text-transform: none; line-height: 1.1;
+            font-size: 0.65rem; text-transform: none; font-weight: 500; 
+            margin-top: 5px; color: #222; line-height: 1.1;
+            display: none; 
         }
 
         .controls { 
@@ -75,16 +79,16 @@
             border: 3px solid #000; background: transparent; 
             font-weight: 700; cursor: pointer; font-size: 1rem; color: #000;
         }
-        button:hover { background: rgba(0,0,0,0.05); }
+        button:hover { background: rgba(0,0,0,0.05); } 
         button:disabled { opacity: 0.3; cursor: not-allowed; border-color: #999; color: #999; }
         
-        #submit-btn { background-color: #f0f0f0; border-color: #ccc; color: #999; }
-        #submit-btn.active { background-color: #000; color: #fff; border-color: #000; }
+        #submit-btn.active { background-color: #000; color: #fff; }
 
         .attempts-section { 
             display: flex; align-items: center; justify-content: flex-end; gap: 10px;
             font-weight: 600; font-size: 1.1rem; width: 100%; padding-right: 15px; 
         }
+        .circles-container { display: flex; gap: 8px; }
         .circle { 
             width: 18px; height: 18px; background: #C4A484; 
             border: 2px solid #000; border-radius: 50%;
@@ -112,23 +116,31 @@
             <button id="shuffle-btn">Shuffle</button>
             <button id="def-btn">Definitions</button>
             <button id="submit-btn" disabled>Submit</button>
-            <button id="new-game-btn">New Game</button>
+        </div>
+        
+        <div style="text-align: center; margin-top: 5px;">
+            <button id="new-game-btn" style="border: none; text-decoration: underline; font-size: 1rem; padding: 5px 20px;">New Game</button>
         </div>
 
         <div class="attempts-section">
             <span>Attempts:</span>
-            <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
+            <div id="circles" class="circles-container">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Restored Dictionary for Definitions Button
+        // Restored Generic Dictionary 
+        // Note: For words in the new big list, this falls back to a placeholder
         const dictionary = {
-            "BARK": { phon: "bɑːrk", def: "Outer covering of a tree." },
-            "LEAF": { phon: "liːf", def: "Green part of a plant." },
-            "ROOT": { phon: "ruːt", def: "Anchor of a plant." },
-            "BRANCH": { phon: "bræntʃ", def: "Limb of a tree." }
-            // Note: Since we have 250 words now, words not in this list will show "No definition available"
+            "BARK": { phon: "bɑːrk", def: "Protective tree covering." },
+            "LEAF": { phon: "liːf", def: "Green plant structure." },
+            "ROOT": { phon: "ruːt", def: "Plant anchor." },
+            "BRANCH": { phon: "bræntʃ", def: "Tree limb." }
         };
 
         let gameData = [];
@@ -139,22 +151,19 @@
 
         async function initGame() {
             try {
-                // FIXED: Loading correct file
+                // FIXED BRIDGE: Points to the master bank we just created
                 const response = await fetch('master_category_bank.json');
                 const data = await response.json();
                 
                 const batchKeys = Object.keys(data.batches);
-                const randomBatch = batchKeys[Math.floor(Math.random() * batchKeys.length)];
-                gameData = data.batches[randomBatch];
+                const randomKey = batchKeys[Math.floor(Math.random() * batchKeys.length)];
+                gameData = data.batches[randomKey];
                 
-                currentWords = gameData.flatMap(cat => 
-                    cat.words.map(w => ({ text: w, catId: cat.id, catName: cat.name, color: cat.color }))
-                );
-                
+                currentWords = gameData.flatMap(cat => cat.words.map(w => ({ text: w, catId: cat.id })));
                 shuffleWords();
-            } catch (error) {
-                console.error(error);
-                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center;'>Loading Error. Check console.</div>";
+            } catch (e) { 
+                console.error("Error loading JSON", e);
+                document.getElementById('grid').innerHTML = "<div style='grid-column:1/-1;text-align:center'>Error loading game data.</div>";
             }
         }
 
@@ -162,20 +171,11 @@
             const gridEl = document.getElementById('grid');
             gridEl.innerHTML = ''; 
 
-            // 1. Draw Solved
+            // 1. Draw Solved Rows
             solvedCategories.forEach(cat => {
                 const row = document.createElement('div');
                 row.className = 'solved-row';
-                
-                // Color Logic
-                let bg = cat.color;
-                // Fallback if color is missing/named
-                if(cat.difficulty === 'Seed') bg = '#90EE90';
-                else if(cat.difficulty === 'Red Herring') bg = '#ADD8E6';
-                else if(cat.difficulty === 'Tricky') bg = '#FFFFE0';
-                else if(cat.difficulty === 'Expert') bg = '#FFB6C1';
-                
-                row.style.backgroundColor = bg || '#90EE90';
+                row.style.backgroundColor = cat.color;
                 row.innerHTML = `<div>${cat.name}</div><div style="font-weight:normal; font-size:0.8rem">${cat.words.join(', ')}</div>`;
                 gridEl.appendChild(row);
             });
@@ -186,8 +186,8 @@
                 div.className = 'word-card';
                 if (selectedWords.find(sw => sw.text === wordObj.text)) div.classList.add('selected');
                 
-                // FIXED: Definitions HTML is included but hidden by default
-                const info = dictionary[wordObj.text] || { phon: "", def: "Definition loading..." };
+                // Logic to get definition (or placeholder)
+                const info = dictionary[wordObj.text] || { phon: "", def: "Definition not available" };
                 
                 div.innerHTML = `
                     <div class="word-text">${wordObj.text}</div>
@@ -195,20 +195,21 @@
                         ${info.def}
                     </div>
                 `;
-                
                 div.onclick = () => toggleSelect(div, wordObj);
                 gridEl.appendChild(div);
             });
         }
 
         function toggleSelect(el, wordObj) {
-            if (solvedCategories.some(c => c.id === wordObj.catId)) return;
+            const defDiv = document.getElementById(`def-${wordObj.text}`);
             if (el.classList.contains('selected')) {
+                el.classList.remove('selected');
                 selectedWords = selectedWords.filter(w => w.text !== wordObj.text);
+                if(defDiv) defDiv.style.display = 'none';
             } else if (selectedWords.length < 4) {
+                el.classList.add('selected');
                 selectedWords.push(wordObj);
             }
-            renderGrid();
             updateButtons();
         }
 
@@ -217,27 +218,11 @@
             if (selectedWords.length === 4) {
                 submitBtn.disabled = false;
                 submitBtn.classList.add('active');
-                submitBtn.style.backgroundColor = '#000';
-                submitBtn.style.color = '#fff';
             } else {
                 submitBtn.disabled = true;
                 submitBtn.classList.remove('active');
-                submitBtn.style.backgroundColor = '#f0f0f0';
-                submitBtn.style.color = '#999';
             }
         }
-
-        // FIXED: Definition Button Logic
-        document.getElementById('def-btn').onclick = () => {
-            // Toggle definition visibility for SELECTED words only
-            selectedWords.forEach(w => {
-                const defEl = document.getElementById(`def-${w.text}`);
-                if (defEl) {
-                    const isHidden = (defEl.style.display === 'none' || defEl.style.display === '');
-                    defEl.style.display = isHidden ? 'block' : 'none';
-                }
-            });
-        };
 
         function shuffleWords() {
             currentWords.sort(() => Math.random() - 0.5);
@@ -247,38 +232,54 @@
         document.getElementById('shuffle-btn').onclick = shuffleWords;
         document.getElementById('new-game-btn').onclick = () => location.reload();
 
+        // FIXED: Definitions Button Logic
+        document.getElementById('def-btn').onclick = () => {
+            selectedWords.forEach(w => {
+                const defEl = document.getElementById(`def-${w.text}`);
+                if (defEl) {
+                    // Toggle visibility
+                    const isHidden = (defEl.style.display === 'none' || defEl.style.display === '');
+                    defEl.style.display = isHidden ? 'block' : 'none';
+                }
+            });
+        };
+
         document.getElementById('submit-btn').onclick = () => {
             if (selectedWords.length !== 4) return;
             const firstId = selectedWords[0].catId;
             const isMatch = selectedWords.every(w => w.catId === firstId);
 
-            if (isMatch) {
-                // Find category object
-                // If it's a batch, find by ID
-                let category = null;
-                // We need to look in the raw data or infer from the word object
-                // Since we flattened it, we can grab properties from the first word
-                category = {
-                    id: selectedWords[0].catId,
-                    name: selectedWords[0].catName,
-                    color: selectedWords[0].color,
-                    words: selectedWords.map(w => w.text)
-                };
-
-                solvedCategories.push(category);
-                currentWords = currentWords.filter(w => w.catId !== firstId);
-                selectedWords = [];
-                renderGrid();
-                updateButtons();
-                if (currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
-            } else {
-                mistakes--;
-                const circles = document.querySelectorAll('.circle');
-                if (circles[mistakes]) circles[mistakes].classList.add('spent');
-                alert("Incorrect!");
-                if (mistakes === 0) setTimeout(() => { alert("Game Over"); location.reload(); }, 500);
-            }
+            if (isMatch) handleCorrect(firstId);
+            else handleWrong();
         };
+
+        function handleCorrect(catId) {
+            const category = gameData.find(c => c.id === catId);
+            
+            // Push to solved list
+            solvedCategories.push(category);
+            
+            currentWords = currentWords.filter(w => w.catId !== catId);
+            selectedWords = [];
+            
+            // Re-render to show solved row
+            renderGrid();
+            updateButtons();
+            
+            if (currentWords.length === 0) setTimeout(() => alert("You Win!"), 300);
+        }
+
+        function handleWrong() {
+            mistakes--;
+            const circles = document.querySelectorAll('.circle');
+            if (circles[mistakes]) circles[mistakes].classList.add('spent');
+            const grid = document.getElementById('grid');
+            grid.classList.add('shake');
+            setTimeout(() => grid.classList.remove('shake'), 500);
+            if (mistakes === 0) {
+                setTimeout(() => { alert("Game Over!"); location.reload(); }, 600);
+            }
+        }
 
         initGame();
     </script>

@@ -1,22 +1,454 @@
 {
   "batches": {
     "batch_01": [
-      {"id": "1-0", "name": "FRUIT", "words": ["APPLE", "DATE", "LIME", "KIWI"], "color": "Seed"},
-      {"id": "1-1", "name": "CALENDAR", "words": ["DATE", "MONTH", "YEAR", "WEEK"], "color": "Red Herring"},
-      {"id": "1-2", "name": "COLORS", "words": ["LIME", "ORANGE", "ROSE", "SILVER"], "color": "Tricky"},
-      {"id": "1-3", "name": "METALS", "words": ["SILVER", "GOLD", "IRON", "TIN"], "color": "Expert"}
+      {
+        "id": 1,
+        "name": "FRUITS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "APPLE",
+          "BANANA",
+          "CHERRY",
+          "GRAPE"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "FRUITS SET 2",
+        "difficulty": "Red Herring",
+        "color": "#ADD8E6",
+        "words": [
+          "LEMON",
+          "LIME",
+          "MANGO",
+          "PEACH"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "FRUITS SET 3",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "PEAR",
+          "PLUM",
+          "KIWI",
+          "MELON"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "FRUITS SET 4",
+        "difficulty": "Expert",
+        "color": "#FFB6C1",
+        "words": [
+          "ORANGE",
+          "PAPAYA",
+          "BERRY",
+          "FIG"
+        ]
+      }
     ],
     "batch_02": [
-      {"id": "2-0", "name": "DOG SOUNDS", "words": ["BARK", "WOOF", "YELP", "HOWL"], "color": "Seed"},
-      {"id": "2-1", "name": "TREE PARTS", "words": ["BARK", "LEAF", "ROOT", "BRANCH"], "color": "Red Herring"},
-      {"id": "2-2", "name": "BUSINESS", "words": ["SALES", "LEGAL", "ADMIN", "SECTOR"], "color": "Tricky"},
-      {"id": "2-3", "name": "GARDENING", "words": ["SOW", "SEED", "BLOOM", "GARDEN"], "color": "Expert"}
+      {
+        "id": 5,
+        "name": "FRUITS SET 5",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "DATE",
+          "GUAVA",
+          "APRICOT",
+          "COCONUT"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "FRUITS SET 6",
+        "difficulty": "Red Herring",
+        "color": "#ADD8E6",
+        "words": [
+          "APPLE",
+          "LIME",
+          "KIWI",
+          "FIG"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "FRUITS SET 7",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "BANANA",
+          "MANGO",
+          "MELON",
+          "DATE"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "FRUITS SET 8",
+        "difficulty": "Expert",
+        "color": "#FFB6C1",
+        "words": [
+          "CHERRY",
+          "PEACH",
+          "ORANGE",
+          "GUAVA"
+        ]
+      }
     ],
     "batch_03": [
-      {"id": "3-0", "name": "WRITING", "words": ["PEN", "PENCIL", "MARKER", "CRAYON"], "color": "Seed"},
-      {"id": "3-1", "name": "OFFICE", "words": ["STAPLE", "CLIP", "FOLDER", "BINDER"], "color": "Red Herring"},
-      {"id": "3-2", "name": "KEYBOARD", "words": ["SHIFT", "ENTER", "CONTROL", "ESCAPE"], "color": "Tricky"},
-      {"id": "3-3", "name": "FABRIC", "words": ["FOLD", "CREASE", "BEND", "PLEAT"], "color": "Expert"}
+      {
+        "id": 11,
+        "name": "VEGETABLES SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "CARROT",
+          "POTATO",
+          "TOMATO",
+          "ONION"
+        ]
+      },
+      {
+        "id": 12,
+        "name": "VEGETABLES SET 2",
+        "difficulty": "Expert",
+        "color": "#FFB6C1",
+        "words": [
+          "GARLIC",
+          "CELERY",
+          "PEPPER",
+          "LETTUCE"
+        ]
+      },
+      {
+        "id": 13,
+        "name": "VEGETABLES SET 3",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SPINACH",
+          "BROCCOLI",
+          "CABBAGE",
+          "RADISH"
+        ]
+      },
+      {
+        "id": 14,
+        "name": "VEGETABLES SET 4",
+        "difficulty": "Red Herring",
+        "color": "#ADD8E6",
+        "words": [
+          "BEET",
+          "TURNIP",
+          "SQUASH",
+          "PUMPKIN"
+        ]
+      }
+    ],
+    "batch_04": [
+      {
+        "id": 21,
+        "name": "COLORS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "RED",
+          "BLUE",
+          "GREEN",
+          "YELLOW"
+        ]
+      },
+      {
+        "id": 22,
+        "name": "COLORS SET 2",
+        "difficulty": "Red Herring",
+        "color": "#ADD8E6",
+        "words": [
+          "PURPLE",
+          "ORANGE",
+          "PINK",
+          "BROWN"
+        ]
+      },
+      {
+        "id": 31,
+        "name": "WILD ANIMALS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "LION",
+          "TIGER",
+          "BEAR",
+          "WOLF"
+        ]
+      },
+      {
+        "id": 32,
+        "name": "WILD ANIMALS SET 2",
+        "difficulty": "Expert",
+        "color": "#FFB6C1",
+        "words": [
+          "FOX",
+          "DEER",
+          "ELK",
+          "MOOSE"
+        ]
+      }
+    ],
+    "batch_05": [
+      {
+        "id": 41,
+        "name": "FARM ANIMALS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "COW",
+          "PIG",
+          "SHEEP",
+          "GOAT"
+        ]
+      },
+      {
+        "id": 61,
+        "name": "FISH SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SALMON",
+          "TROUT",
+          "TUNA",
+          "COD"
+        ]
+      },
+      {
+        "id": 71,
+        "name": "INSECTS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "ANT",
+          "BEE",
+          "BEETLE",
+          "BUTTERFLY"
+        ]
+      },
+      {
+        "id": 81,
+        "name": "TREES SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "OAK",
+          "MAPLE",
+          "PINE",
+          "CEDAR"
+        ]
+      }
+    ],
+    "batch_06": [
+      {
+        "id": 91,
+        "name": "FLOWERS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "ROSE",
+          "TULIP",
+          "LILY",
+          "DAISY"
+        ]
+      },
+      {
+        "id": 101,
+        "name": "HERBS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "BASIL",
+          "THYME",
+          "SAGE",
+          "MINT"
+        ]
+      },
+      {
+        "id": 111,
+        "name": "SPICES SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "PEPPER",
+          "CUMIN",
+          "PAPRIKA",
+          "CINNAMON"
+        ]
+      },
+      {
+        "id": 121,
+        "name": "DESSERTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "CAKE",
+          "PIE",
+          "COOKIE",
+          "BROWNIE"
+        ]
+      }
+    ],
+    "batch_07": [
+      {
+        "id": 131,
+        "name": "DRINKS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "WATER",
+          "JUICE",
+          "SODA",
+          "TEA"
+        ]
+      },
+      {
+        "id": 141,
+        "name": "SPORTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SOCCER",
+          "TENNIS",
+          "BASEBALL",
+          "FOOTBALL"
+        ]
+      },
+      {
+        "id": 151,
+        "name": "INSTRUMENTS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "PIANO",
+          "GUITAR",
+          "VIOLIN",
+          "CELLO"
+        ]
+      },
+      {
+        "id": 161,
+        "name": "VEHICLES SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "CAR",
+          "TRUCK",
+          "BUS",
+          "VAN"
+        ]
+      }
+    ],
+    "batch_08": [
+      {
+        "id": 171,
+        "name": "TOOLS SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "HAMMER",
+          "SAW",
+          "DRILL",
+          "WRENCH"
+        ]
+      },
+      {
+        "id": 181,
+        "name": "KITCHEN ITEMS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "PAN",
+          "POT",
+          "BOWL",
+          "PLATE"
+        ]
+      },
+      {
+        "id": 191,
+        "name": "FURNITURE SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "CHAIR",
+          "TABLE",
+          "SOFA",
+          "COUCH"
+        ]
+      },
+      {
+        "id": 201,
+        "name": "CLOTHING SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "SHIRT",
+          "PANTS",
+          "DRESS",
+          "SKIRT"
+        ]
+      }
+    ],
+    "batch_09": [
+      {
+        "id": 211,
+        "name": "SHOES SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "BOOT",
+          "SNEAKER",
+          "SANDAL",
+          "LOAFER"
+        ]
+      },
+      {
+        "id": 221,
+        "name": "WEATHER SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "RAIN",
+          "SNOW",
+          "SLEET",
+          "HAIL"
+        ]
+      },
+      {
+        "id": 231,
+        "name": "GEOGRAPHY SET 1",
+        "difficulty": "Tricky",
+        "color": "#FFFFE0",
+        "words": [
+          "RIVER",
+          "LAKE",
+          "OCEAN",
+          "SEA"
+        ]
+      },
+      {
+        "id": 241,
+        "name": "BODY PARTS SET 1",
+        "difficulty": "Seed",
+        "color": "#90EE90",
+        "words": [
+          "HEAD",
+          "HAIR",
+          "EAR",
+          "EYE"
+        ]
+      }
     ]
   }
 }
